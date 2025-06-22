@@ -132,6 +132,23 @@
       cursor: pointer;
       border-radius: 5px;
     }
+
+    /* Contact Buttons */
+    .contact-btn {
+      display: inline-block;
+      margin: 5px;
+      padding: 10px 15px;
+      background-color: #ff5e57;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background-color: #e14e48;
+    }
   </style>
 
   <script>
@@ -178,20 +195,20 @@
         <img src="amahle.jpg" alt="Miss Kheswa" class="team-photo" />
         <h3>Slindokuhle Amahle Kheswa</h3>
         <h3>Senior Secretary</h3>
-        <p>Email: <a href="mailto:kheswaamahle64@gmail.com">Send Email</a></p>
-        <p>Call: <a href="tel:071 141 6353">Call Now</a></p>
+        <a href="mailto:kheswaamahle64@gmail.com" class="contact-btn">✉️ Send Email</a>
+        <a href="tel:0711416353" class="contact-btn">📞 Call Now</a>
       </div>
 
       <div class="team-member">
         <img src="logo.jpg" alt="Khulekani Myende" class="team-photo" />
         <h3>Khulekani Myende</h3>
-        <p>Email: <a href="mailto:khulekani.myende@mech.org">khulekani.myende@mech.org</a></p>
+        <a href="mailto:khulekani.myende@mech.org" class="contact-btn">✉️ Send Email</a>
       </div>
 
       <div class="team-member">
         <img src="logo.jpg" alt="Themba Kheswa" class="team-photo" />
         <h3>Themba Samkelo Thusi Kheswa</h3>
-        <p>Email: <a href="mailto:themba.kheswa@mech.org">themba.kheswa@mech.org</a></p>
+        <a href="mailto:themba.kheswa@mech.org" class="contact-btn">✉️ Send Email</a>
       </div>
     </div>
 
@@ -228,5 +245,3 @@
 
 </body>
 </html>
-
-
