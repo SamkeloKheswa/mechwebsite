@@ -2,101 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Make Every Child Happy Org</title>
   <style>
+    /* Reset & base */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
       background-color: #d9d9d9;
+      color: #222;
+      line-height: 1.6;
     }
 
     header {
-      background-color: black;
-      color: gold;
-      padding: 20px;
+      background-color: #000;
+      color: #ffd700;
+      padding: 20px 10px;
       text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     }
 
     .logo {
       width: 80px;
       margin-bottom: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 6px #ffd700;
     }
 
     .slogan {
       font-style: italic;
       color: #ffd700;
+      margin-top: 0;
+      font-weight: 600;
+      letter-spacing: 0.05em;
     }
 
     nav {
-      margin-top: 10px;
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
     nav a {
-      margin: 0 10px;
-      color: gold;
+      color: #ffd700;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      box-shadow: inset 0 -2px 0 0 #ffd700;
     }
 
-    .dropdown {
-      display: inline-block;
-      position: relative;
-    }
-
-    .dropbtn {
-      background-color: black;
-      color: gold;
-      padding: 10px;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: white;
-      min-width: 220px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      z-index: 1;
-    }
-
-    .dropdown-content a {
-      color: black;
-      padding: 10px 15px;
-      text-decoration: none;
-      display: block;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #f1f1f1;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
+    nav a:hover,
+    nav a:focus {
+      background-color: #ffd700;
+      color: #000;
+      outline: none;
     }
 
     main {
-      padding: 20px;
-      background-color: white;
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      background-color: #333;
-      color: white;
+      padding: 25px 20px;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
     .section {
-      margin-bottom: 40px;
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      border-bottom: 3px solid #ff5e57;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: #ff5e57;
     }
 
     .team-member {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(255,94,87,0.3);
+      transition: transform 0.3s ease;
+      background: #fff0f0;
+    }
+
+    .team-member:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(255,94,87,0.6);
     }
 
     .team-photo {
@@ -104,43 +104,85 @@
       height: 150px;
       object-fit: cover;
       border-radius: 50%;
-      border: 3px solid gold;
+      border: 4px solid #ff5e57;
+      box-shadow: 0 2px 10px rgba(255,94,87,0.4);
+      margin-bottom: 12px;
     }
 
-    form input, form textarea {
-      width: 100%;
-      max-width: 500px;
-      margin-bottom: 15px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+    .contact-btn,
+    .whatsapp-btn,
+    .doc-view-btn {
+      display: inline-block;
+      margin: 6px 8px 12px 8px;
+      padding: 12px 20px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      user-select: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    form button {
+    .contact-btn {
       background-color: #ff5e57;
       color: white;
       border: none;
-      padding: 10px 20px;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
+    }
+    .contact-btn:hover,
+    .contact-btn:focus {
+      background-color: #e14e48;
+      box-shadow: 0 6px 15px rgba(225,78,72,0.8);
+      outline: none;
     }
 
+    .whatsapp-btn {
+      background-color: #25d366;
+      color: white;
+      border: none;
+    }
+    .whatsapp-btn:hover,
+    .whatsapp-btn:focus {
+      background-color: #1ebe5b;
+      box-shadow: 0 6px 15px rgba(30,190,91,0.85);
+      outline: none;
+    }
+
+    .doc-view-btn {
+      background-color: #0077cc;
+      color: white;
+      border: none;
+    }
+    .doc-view-btn:hover,
+    .doc-view-btn:focus {
+      background-color: #005fa3;
+      box-shadow: 0 6px 15px rgba(0,95,163,0.8);
+      outline: none;
+    }
+
+    /* Chat button */
     .chat-btn {
       position: fixed;
       bottom: 25px;
       right: 25px;
       background-color: #ff5e57;
       color: white;
-      padding: 15px 20px;
+      padding: 18px 24px;
       border: none;
       border-radius: 50px;
-      font-weight: bold;
+      font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
       z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+    .chat-btn:hover,
+    .chat-btn:focus {
+      background-color: #e14e48;
+      outline: none;
     }
 
+    /* Popup chat form */
     .popup-form {
       display: none;
       position: fixed;
@@ -148,57 +190,180 @@
       right: 25px;
       background-color: white;
       border: 2px solid #ccc;
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 20px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
       z-index: 1001;
       max-width: 350px;
     }
-
     .popup-form h3 {
       margin-top: 0;
+      font-weight: 700;
+      color: #ff5e57;
     }
-
     .close-btn {
       background-color: #333;
       color: white;
       border: none;
       float: right;
-      padding: 5px 10px;
+      padding: 5px 12px;
       cursor: pointer;
-      border-radius: 5px;
+      border-radius: 6px;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+    }
+    .close-btn:hover,
+    .close-btn:focus {
+      background-color: #555;
+      outline: none;
     }
 
-    .contact-btn {
-      display: inline-block;
-      margin: 5px;
-      padding: 10px 15px;
+    form input, form textarea {
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 15px;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    form input:focus, form textarea:focus {
+      border-color: #ff5e57;
+      outline: none;
+      box-shadow: 0 0 8px rgba(255,94,87,0.6);
+    }
+    form button[type="submit"] {
+      width: 100%;
       background-color: #ff5e57;
+      font-weight: 700;
+      padding: 14px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 8px;
+      border: none;
       color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
+      box-shadow: 0 6px 14px rgba(255,94,87,0.8);
       transition: background-color 0.3s ease;
     }
-
-    .contact-btn:hover {
+    form button[type="submit"]:hover,
+    form button[type="submit"]:focus {
       background-color: #e14e48;
+      outline: none;
     }
 
-    .whatsapp-btn {
-      display: inline-block;
-      margin: 5px;
-      padding: 10px 15px;
-      background-color: #25D366;
+    /* PDF Modal Styles */
+    #pdfModal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 9999;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      backdrop-filter: blur(4px);
+    }
+
+    #pdfModalContent {
+      position: relative;
+      background: white;
+      width: 90%;
+      max-width: 900px;
+      height: 90vh;
+      margin: 5vh auto;
+      border-radius: 14px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    #pdfModal iframe {
+      flex: 1;
+      border: none;
+      border-radius: 0 0 14px 14px;
+      background-color: #f9f9f9;
+    }
+
+    #pdfModalClose {
+      background: #ff5e57;
+      border: none;
       color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
+      font-weight: 700;
+      padding: 12px 24px;
+      cursor: pointer;
+      border-radius: 14px 14px 0 0;
+      align-self: flex-end;
+      box-shadow: 0 4px 12px rgba(255,94,87,0.85);
       transition: background-color 0.3s ease;
     }
 
-    .whatsapp-btn:hover {
-      background-color: #1ebe5b;
+    #pdfModalClose:hover,
+    #pdfModalClose:focus {
+      background-color: #e14e48;
+      outline: none;
+    }
+
+    /* Loading spinner */
+    #spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #ff5e57;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      z-index: 10000;
+      display: none;
+    }
+
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      header {
+        padding: 15px 10px;
+      }
+      .logo {
+        width: 60px;
+      }
+      main {
+        padding: 15px 10px;
+        margin-bottom: 30px;
+      }
+      .team-photo {
+        width: 110px;
+        height: 110px;
+      }
+      .contact-btn,
+      .whatsapp-btn,
+      .doc-view-btn {
+        width: 100%;
+        margin: 8px 0;
+        padding: 14px;
+        font-size: 1.1rem;
+      }
+      #pdfModalContent {
+        width: 95%;
+        height: 85vh;
+        margin: 7vh auto;
+      }
+      #pdfModalClose {
+        padding: 10px 18px;
+        font-size: 1rem;
+      }
+      .chat-btn {
+        padding: 14px 18px;
+        bottom: 20px;
+        right: 15px;
+      }
     }
   </style>
 
@@ -212,6 +377,32 @@
       alert("Thank you! Your message has been submitted successfully.");
       toggleChatForm();
     }
+
+    function openPDFModal(pdfUrl) {
+      const modal = document.getElementById('pdfModal');
+      const iframe = document.getElementById('pdfFrame');
+      const spinner = document.getElementById('spinner');
+      
+      // Show modal and spinner
+      modal.style.display = 'block';
+      spinner.style.display = 'block';
+
+      // Listen for iframe load to hide spinner
+      iframe.onload = function() {
+        spinner.style.display = 'none';
+      };
+
+      iframe.src = pdfUrl;
+    }
+
+    function closePDFModal() {
+      const modal = document.getElementById('pdfModal');
+      const iframe = document.getElementById('pdfFrame');
+      const spinner = document.getElementById('spinner');
+      iframe.src = '';
+      spinner.style.display = 'none';
+      modal.style.display = 'none';
+    }
   </script>
 </head>
 <body>
@@ -224,16 +415,8 @@
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#team">Team</a>
+      <a href="#documents">Documents</a>
       <a href="#contact">Contact</a>
-
-      <div class="dropdown">
-        <button class="dropbtn">📂 Documents</button>
-        <div class="dropdown-content">
-          <a href="https://github.com/MakeEveryChildHappyOrg/MECH-Website/blob/main/document/COR15.1C.pdf?raw=true" target="_blank">COR15.1C (CIPC Form)</a>
-          <a href="https://github.com/MakeEveryChildHappyOrg/MECH-Website/blob/main/document/DETAILED%20NARRATIVE%20DESCRIPTION%20OF%20ORGANISATIONAL%20ACTIVITIES.pdf?raw=true" target="_blank">Narrative Description</a>
-          <a href="https://github.com/MakeEveryChildHappyOrg/MECH-Website/blob/main/document/PROJECTED%20BUDGET%20FORECAST.pdf?raw=true" target="_blank">Budget Forecast</a>
-        </div>
-      </div>
     </nav>
   </header>
 
@@ -255,21 +438,28 @@
         <img src="amahle.jpg" alt="Miss Kheswa" class="team-photo" />
         <h3>Slindokuhle Amahle Kheswa</h3>
         <h3>Senior Secretary</h3>
-        <a href="mailto:kheswaamahle64@gmail.com" class="contact-btn">✉️ Send Email</a>
-        <a href="tel:0711416353" class="contact-btn">📞 Call Now</a>
+        <a href="mailto:kheswaamahle64@gmail.com" class="contact-btn" aria-label="Email Slindokuhle Amahle Kheswa">✉️ Send Email</a>
+        <a href="tel:0711416353" class="contact-btn" aria-label="Call Slindokuhle Amahle Kheswa">📞 Call Now</a>
       </div>
 
       <div class="team-member">
         <img src="logo.jpg" alt="Khulekani Myende" class="team-photo" />
         <h3>Khulekani Myende</h3>
-        <a href="mailto:khulekani.myende@mech.org" class="contact-btn">✉️ Send Email</a>
+        <a href="mailto:khulekani.myende@mech.org" class="contact-btn" aria-label="Email Khulekani Myende">✉️ Send Email</a>
       </div>
 
       <div class="team-member">
         <img src="logo.jpg" alt="Themba Kheswa" class="team-photo" />
         <h3>Themba Samkelo Thusi Kheswa</h3>
-        <a href="mailto:themba.kheswa@mech.org" class="contact-btn">✉️ Send Email</a>
+        <a href="mailto:themba.kheswa@mech.org" class="contact-btn" aria-label="Email Themba Samkelo Thusi Kheswa">✉️ Send Email</a>
       </div>
+    </div>
+
+    <div class="section" id="documents">
+      <h2>Organisation Documents</h2>
+      <button class="doc-view-btn" onclick="openPDFModal('https://github.com/MakeEveryChildHappyOrg/MECH-Website/blob/main/Documents/COR15.1C.pdf?raw=true')" aria-label="View CIPC COR15.1C document">📄 View COR15.1C (CIPC Form)</button>
+      <button class="doc-view-btn" onclick="openPDFModal('https://github.com/MakeEveryChildHappyOrg/MECH-Website/blob/main/Documents/DETAILED%20NARRATIVE%20DESCRIPTION%20OF%20ORGANISATIONAL%20ACTIVITIES.pdf?raw=true')" aria-label="View Narrative Description document">📄 View Narrative Description</button>
+      <button class="doc-view-btn" onclick="openPDFModal('https://github.com/MakeEveryChildHappyOrg/MECH-Website/blob/main/Documents/PROJECTED%20BUDGET%20FORECAST.pdf?raw=true')" aria-label="View Budget Forecast document">📄 View Budget Forecast</button>
     </div>
 
     <div class="section" id="contact">
@@ -277,7 +467,7 @@
       <p><strong>Address:</strong> B1312 Msolwa Road, Mpumalanga B, Hammarsdale, 3699</p>
       <p><strong>Email:</strong> Marketing.MECH2025@outlook.com</p>
       <p><strong>Phone:</strong> 067 022 6846</p>
-      <a href="https://wa.me/27639868274" class="whatsapp-btn" target="_blank">💬 WhatsApp Us</a>
+      <a href="https://wa.me/27639868274" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">💬 WhatsApp Us</a>
     </div>
   </main>
 
@@ -287,24 +477,31 @@
   </footer>
 
   <!-- Floating Chat Button -->
-  <button class="chat-btn" onclick="toggleChatForm()">Support Chat</button>
+  <button class="chat-btn" onclick="toggleChatForm()" aria-label="Toggle support chat form">Support Chat</button>
 
   <!-- Floating Chat Form -->
-  <div class="popup-form" id="chatForm">
-    <button class="close-btn" onclick="toggleChatForm()">X</button>
-    <h3>Support Chat</h3>
+  <div class="popup-form" id="chatForm" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="supportChatTitle">
+    <button class="close-btn" onclick="toggleChatForm()" aria-label="Close support chat form">X</button>
+    <h3 id="supportChatTitle">Support Chat</h3>
     <form action="https://formspree.io/f/xzzgayyb" method="POST" onsubmit="showConfirmation()">
-      <input type="text" name="first_name" placeholder="First Name" required />
-      <input type="text" name="surname" placeholder="Surname" required />
-      <input type="tel" name="cell" placeholder="Cell Number" required />
-      <input type="email" name="email" placeholder="Email Address" required />
-      <input type="text" name="subject" placeholder="Subject" required />
-      <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+      <input type="text" name="first_name" placeholder="First Name" required aria-required="true" />
+      <input type="text" name="surname" placeholder="Surname" required aria-required="true" />
+      <input type="tel" name="cell" placeholder="Cell Number" required aria-required="true" />
+      <input type="email" name="email" placeholder="Email Address" required aria-required="true" />
+      <input type="text" name="subject" placeholder="Subject" required aria-required="true" />
+      <textarea name="message" placeholder="Your Message" rows="4" required aria-required="true"></textarea>
       <button type="submit">Send</button>
     </form>
   </div>
 
+  <!-- PDF Preview Modal -->
+  <div id="pdfModal" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle" aria-describedby="pdfModalDesc">
+    <div id="pdfModalContent">
+      <button id="pdfModalClose" onclick="closePDFModal()" aria-label="Close document preview">✖ Close</button>
+      <div id="spinner" aria-hidden="true" title="Loading document"></div>
+      <iframe id="pdfFrame" src="" title="Document Preview"></iframe>
+    </div>
+  </div>
+
 </body>
 </html>
-
-
