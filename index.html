@@ -2,34 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Make Every Child Happy Org</title>
   <style>
-    /* Reset & base */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #d9d9d9;
-      font-size: 18px;
-      line-height: 1.6;
-      color: #222;
+    * {
+      box-sizing: border-box;
     }
 
-    .page-container {
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* Dimmed Overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* darkness level */
+      z-index: -1;
+    }
+
+    .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px 40px;
-      background-color: #fff;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 10px;
     }
 
     header {
-      background-color: black;
+      background-color: rgba(0, 0, 0, 0.8);
       color: gold;
-      padding: 20px 0;
+      padding: 20px;
       text-align: center;
-      border-radius: 8px 8px 0 0;
     }
 
     .logo {
@@ -40,68 +54,26 @@
     .slogan {
       font-style: italic;
       color: #ffd700;
-      margin-top: 0;
-      margin-bottom: 15px;
-      font-size: 20px;
-      font-weight: 600;
+    }
+
+    nav a {
+      margin: 0 10px;
+      color: gold;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     nav {
       margin-top: 10px;
     }
 
-    nav a {
-      margin: 0 18px;
-      color: gold;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 16px;
-      transition: color 0.3s ease;
-    }
-    nav a:hover,
-    nav a:focus {
-      color: #fff;
-      outline: none;
-    }
-
-    main {
-      padding: 30px 0 60px 0;
-    }
-
     .section {
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
 
-    h1, h2, h3 {
-      font-weight: 700;
-      margin-top: 0;
-      margin-bottom: 15px;
-      color: #111;
-    }
-
-    p {
-      max-width: 900px;
-      margin-bottom: 20px;
-      font-size: 17px;
-      color: #444;
-    }
-
-    ul {
-      max-width: 900px;
-      list-style-type: disc;
-      padding-left: 20px;
-      color: #444;
-      font-size: 17px;
-    }
-
-    ul li {
-      margin-bottom: 12px;
-    }
-
-    /* Team */
     .team-member {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
     .team-photo {
@@ -110,120 +82,42 @@
       object-fit: cover;
       border-radius: 50%;
       border: 3px solid gold;
-      display: block;
-      margin: 0 auto 15px auto;
     }
 
-    .contact-btn {
-      display: inline-block;
-      margin: 6px 12px;
-      padding: 10px 22px;
+    form input, form textarea {
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
       background-color: #ff5e57;
       color: white;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 16px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease;
-      cursor: pointer;
-    }
-    .contact-btn:hover,
-    .contact-btn:focus {
-      background-color: #e04e48;
-      outline: none;
-    }
-
-    /* Document Buttons */
-    .doc-view-btn {
-      display: inline-block;
-      margin: 8px 15px 15px 0;
-      padding: 12px 28px;
-      background-color: #0073e6;
-      color: white;
-      font-weight: 700;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease;
-      font-size: 16px;
-    }
-    .doc-view-btn:hover,
-    .doc-view-btn:focus {
-      background-color: #005bb5;
-      outline: none;
-    }
-
-    /* WhatsApp Button */
-    .whatsapp-btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 28px;
-      background-color: #25D366;
-      color: white;
-      font-weight: 700;
-      border-radius: 8px;
-      text-decoration: none;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-      font-size: 16px;
-      transition: background-color 0.3s ease;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 5px;
       cursor: pointer;
     }
-    .whatsapp-btn:hover,
-    .whatsapp-btn:focus {
-      background-color: #1ebe57;
-      outline: none;
-    }
 
-    /* Vacancies */
-    #vacancies ul {
-      max-width: 900px;
-      padding-left: 22px;
-      list-style-type: disc;
-      color: #444;
-      font-size: 17px;
-    }
-
-    #vacancies ul li {
-      margin-bottom: 12px;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px 10px;
-      background-color: #333;
-      color: white;
-      border-radius: 0 0 8px 8px;
-      font-size: 15px;
-      user-select: none;
-    }
-
-    /* Floating Chat Button */
     .chat-btn {
       position: fixed;
       bottom: 25px;
       right: 25px;
       background-color: #ff5e57;
       color: white;
-      padding: 15px 26px;
+      padding: 15px 20px;
       border: none;
       border-radius: 50px;
-      font-weight: 700;
-      font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
       z-index: 1000;
-      transition: background-color 0.3s ease;
-    }
-    .chat-btn:hover,
-    .chat-btn:focus {
-      background-color: #e04e48;
-      outline: none;
     }
 
-    /* Popup Chat Form */
     .popup-form {
       display: none;
       position: fixed;
@@ -232,177 +126,64 @@
       background-color: white;
       border: 2px solid #ccc;
       border-radius: 10px;
-      padding: 20px 25px;
-      box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+      padding: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
       z-index: 1001;
-      max-width: 400px;
-      font-size: 16px;
+      max-width: 350px;
     }
+
     .popup-form h3 {
       margin-top: 0;
-      margin-bottom: 15px;
-      color: #222;
     }
-    .popup-form input, 
-    .popup-form textarea {
-      width: 100%;
-      margin-bottom: 15px;
-      padding: 10px 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-      resize: vertical;
-      font-family: Arial, sans-serif;
-    }
-    .popup-form button[type="submit"] {
-      background-color: #ff5e57;
-      color: white;
-      border: none;
-      padding: 12px 26px;
-      font-weight: 700;
-      font-size: 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease;
-    }
-    .popup-form button[type="submit"]:hover,
-    .popup-form button[type="submit"]:focus {
-      background-color: #e04e48;
-      outline: none;
-    }
+
     .close-btn {
       background-color: #333;
       color: white;
       border: none;
       float: right;
-      padding: 5px 12px;
+      padding: 5px 10px;
       cursor: pointer;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 14px;
-      transition: background-color 0.3s ease;
-    }
-    .close-btn:hover,
-    .close-btn:focus {
-      background-color: #555;
-      outline: none;
+      border-radius: 5px;
     }
 
-    /* PDF Modal */
-    #pdfModal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.65);
-      z-index: 1100;
-      overflow: auto;
-      padding: 50px 0;
+    footer {
       text-align: center;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      margin-top: 40px;
     }
 
-    #pdfModalContent {
-      position: relative;
-      background: white;
-      width: 900px;
-      height: 80vh;
-      margin: 0 auto;
-      border-radius: 14px;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.5);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
+    .whatsapp-btn {
+      display: inline-block;
+      background-color: #25d366;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
     }
 
-    #pdfModalClose {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      background: transparent;
-      border: none;
-      font-size: 24px;
-      font-weight: 700;
-      color: #333;
-      cursor: pointer;
-      padding: 6px 12px;
-      transition: color 0.3s ease;
-      user-select: none;
-    }
-    #pdfModalClose:hover,
-    #pdfModalClose:focus {
-      color: #ff5e57;
-      outline: none;
-    }
-
-    #spinner {
-      display: none;
-      margin: auto;
-      border: 8px solid #f3f3f3;
-      border-top: 8px solid #ff5e57;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg);}
-      100% { transform: rotate(360deg);}
-    }
-
-    #pdfFrame {
-      flex-grow: 1;
-      border: none;
-      width: 100%;
-      height: 100%;
+    .vacancies ul {
+      padding-left: 20px;
     }
   </style>
 
   <script>
     function toggleChatForm() {
       const form = document.getElementById("chatForm");
-      if (form.style.display === "block") {
-        form.style.display = "none";
-        form.setAttribute("aria-hidden", "true");
-      } else {
-        form.style.display = "block";
-        form.setAttribute("aria-hidden", "false");
-      }
+      form.style.display = form.style.display === "block" ? "none" : "block";
     }
 
     function showConfirmation() {
       alert("Thank you! Your message has been submitted successfully.");
       toggleChatForm();
     }
-
-    function openPDFModal(pdfUrl) {
-      const modal = document.getElementById('pdfModal');
-      const iframe = document.getElementById('pdfFrame');
-      const spinner = document.getElementById('spinner');
-
-      modal.style.display = 'block';
-      spinner.style.display = 'block';
-
-      iframe.onload = function() {
-        spinner.style.display = 'none';
-      };
-
-      iframe.src = pdfUrl;
-    }
-
-    function closePDFModal() {
-      const modal = document.getElementById('pdfModal');
-      const iframe = document.getElementById('pdfFrame');
-      const spinner = document.getElementById('spinner');
-
-      iframe.src = '';
-      spinner.style.display = 'none';
-      modal.style.display = 'none';
-    }
   </script>
 </head>
 <body>
-  <div class="page-container">
+  <div class="container">
     <header>
       <img src="logo.jpg" alt="MECH Logo" class="logo" />
       <h1>Make Every Child Happy Org</h1>
@@ -435,46 +216,39 @@
           <img src="amahle.jpg" alt="Miss Kheswa" class="team-photo" />
           <h3>Slindokuhle Amahle Kheswa</h3>
           <h3>Senior Secretary</h3>
-          <a href="mailto:kheswaamahle64@gmail.com" class="contact-btn" aria-label="Email Slindokuhle Amahle Kheswa">✉️ Send Email</a>
-          <a href="tel:0711416353" class="contact-btn" aria-label="Call Slindokuhle Amahle Kheswa">📞 Call Now</a>
+          <p>Email: <a href="mailto:kheswaamahle64@gmail.com">Send Email</a></p>
+          <p>Call: <a href="tel:0711416353">Call Now</a></p>
         </div>
 
         <div class="team-member">
           <img src="logo.jpg" alt="Khulekani Myende" class="team-photo" />
           <h3>Khulekani Myende</h3>
-          <a href="mailto:khulekani.myende@mech.org" class="contact-btn" aria-label="Email Khulekani Myende">✉️ Send Email</a>
+          <p>Email: <a href="mailto:khulekani.myende@mech.org">khulekani.myende@mech.org</a></p>
         </div>
 
         <div class="team-member">
           <img src="logo.jpg" alt="Themba Kheswa" class="team-photo" />
           <h3>Themba Samkelo Thusi Kheswa</h3>
-          <a href="mailto:themba.kheswa@mech.org" class="contact-btn" aria-label="Email Themba Samkelo Thusi Kheswa">✉️ Send Email</a>
+          <p>Email: <a href="mailto:themba.kheswa@mech.org">themba.kheswa@mech.org</a></p>
         </div>
       </div>
 
       <div class="section" id="documents">
         <h2>Organisation Documents</h2>
-        <button class="doc-view-btn" 
-          onclick="openPDFModal('https://github.com/SamkeloKheswa/mechwebsite/raw/8420cfb7f8acb9eca580afdb172ae4f8096e25fc/document/COR15.1C.pdf')" 
-          aria-label="View CIPC COR15.1C document">📄 View COR15.1C (CIPC Form)</button>
-
-        <button class="doc-view-btn" 
-          onclick="openPDFModal('https://github.com/SamkeloKheswa/mechwebsite/raw/8420cfb7f8acb9eca580afdb172ae4f8096e25fc/document/DETAILED%20NARRATIVE%20DESCRIPTION%20OF%20ORGANISATIONAL%20ACTIVITIES.pdf')" 
-          aria-label="View Narrative Description document">📄 View Narrative Description</button>
-
-        <button class="doc-view-btn" 
-          onclick="openPDFModal('https://github.com/SamkeloKheswa/mechwebsite/raw/8420cfb7f8acb9eca580afdb172ae4f8096e25fc/document/PROJECTED%20BUDGET%20FORECAST.pdf')" 
-          aria-label="View Budget Forecast document">📄 View Budget Forecast</button>
+        <ul>
+          <li><a href="document/COR15.1C.pdf" target="_blank">COR15.1C Registration Certificate</a></li>
+          <li><a href="document/DETAILED NARRATIVE DESCRIPTION OF ORGANISATIONAL ACTIVITIES.pdf" target="_blank">Narrative Description of Activities</a></li>
+          <li><a href="document/PROJECTED BUDGET FORECAST.pdf" target="_blank">Projected Budget Forecast</a></li>
+        </ul>
       </div>
 
-      <div class="section" id="vacancies">
+      <div class="section vacancies" id="vacancies">
         <h2>Vacancies</h2>
-        <p>We are currently looking for passionate individuals to join our team. If you want to make a difference, check out the positions below and send your CV to <a href="mailto:Marketing.MECH2025@outlook.com">Marketing.MECH2025@outlook.com</a>.</p>
-
+        <p>We are currently seeking passionate volunteers to join our team. To apply, send your CV and ID to <strong>Founder.MECH@outlook.com</strong></p>
         <ul>
-          <li><strong>Volunteer IT Specialist</strong> – Provide IT support and assistance with website maintenance.</li>
-          <li><strong>Community Outreach Coordinator</strong> – Help organize and run community engagement projects.</li>
-          <li><strong>Marketing Assistant</strong> – Support marketing campaigns and social media management.</li>
+          <li><strong>IT Specialist</strong> – Provide IT support and website maintenance.</li>
+          <li><strong>Community Outreach Coordinator</strong> – Organize and manage community projects.</li>
+          <li><strong>Marketing Assistant</strong> – Assist with campaigns and social media.</li>
         </ul>
       </div>
 
@@ -483,8 +257,7 @@
         <p><strong>Address:</strong> B1312 Msolwa Road, Mpumalanga B, Hammarsdale, 3699</p>
         <p><strong>Email:</strong> <a href="mailto:Marketing.MECH2025@outlook.com">Marketing.MECH2025@outlook.com</a></p>
         <p><strong>Phone:</strong> 067 022 6846</p>
-
-        <a href="https://wa.me/0639868274" target="_blank" rel="noopener" class="whatsapp-btn" aria-label="Chat on WhatsApp">💬 Chat on WhatsApp</a>
+        <a href="https://wa.me/0639868274" target="_blank" class="whatsapp-btn">💬 Chat on WhatsApp</a>
       </div>
     </main>
 
@@ -495,12 +268,12 @@
   </div>
 
   <!-- Floating Chat Button -->
-  <button class="chat-btn" onclick="toggleChatForm()" aria-label="Open support chat">Support Chat</button>
+  <button class="chat-btn" onclick="toggleChatForm()">Support Chat</button>
 
   <!-- Floating Chat Form -->
-  <div class="popup-form" id="chatForm" aria-hidden="true" role="dialog" aria-labelledby="chatFormTitle" tabindex="-1">
-    <button class="close-btn" onclick="toggleChatForm()" aria-label="Close support chat">X</button>
-    <h3 id="chatFormTitle">Support Chat</h3>
+  <div class="popup-form" id="chatForm">
+    <button class="close-btn" onclick="toggleChatForm()">X</button>
+    <h3>Support Chat</h3>
     <form action="https://formspree.io/f/xzzgayyb" method="POST" onsubmit="showConfirmation()">
       <input type="text" name="first_name" placeholder="First Name" required />
       <input type="text" name="surname" placeholder="Surname" required />
@@ -510,15 +283,6 @@
       <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
       <button type="submit">Send</button>
     </form>
-  </div>
-
-  <!-- PDF Modal -->
-  <div id="pdfModal" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle" tabindex="-1">
-    <div id="pdfModalContent">
-      <button id="pdfModalClose" onclick="closePDFModal()" aria-label="Close PDF preview">&times;</button>
-      <div id="spinner"></div>
-      <iframe id="pdfFrame" src="" title="Document Preview"></iframe>
-    </div>
   </div>
 </body>
 </html>
