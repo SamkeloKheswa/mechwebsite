@@ -1,0 +1,8 @@
+{
+  "name": "mechwebsite",
+  "version": "1.0.0",
+  "description": "Support Ticket System for Make Every Child Happy Org",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
+}
