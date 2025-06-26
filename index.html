@@ -12,10 +12,23 @@
       background: url('background.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #333;
+      position: relative;
+    }
+
+    /* Dim overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
     }
 
     header {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.85);
       color: gold;
       padding: 20px;
       text-align: center;
@@ -185,6 +198,7 @@
     <p>&copy; 2025 Make Every Child Happy Org</p>
   </footer>
 
+  <!-- Submit Ticket Handler -->
   <script>
     const ticketForm = document.getElementById("ticketForm");
     const responseMessage = document.getElementById("responseMessage");
@@ -221,6 +235,20 @@
       }
     });
   </script>
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/685d4bd9ae5fff190bf6282e/1ium70sfr';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
 
 </body>
 </html>
