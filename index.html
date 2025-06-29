@@ -41,6 +41,12 @@
       font-weight: bold;
       color: #333;
       font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+    .countdown {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #ff5e57;
     }
     .footer {
       margin-top: 20px;
@@ -56,8 +62,35 @@
     <p>Our website is currently undergoing scheduled development.</p>
     <p>We will be back online on:</p>
     <p class="date">15th July 2025</p>
+    <div class="countdown" id="countdown">Loading countdown...</div>
     <p>Thank you for your understanding and continued support.</p>
     <div class="footer">Make Every Child Happy Org &copy; 2025</div>
   </div>
+
+  <script>
+    // Countdown script
+    const targetDate = new Date("2025-07-15T00:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        countdownEl.innerHTML = "We are back online!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 </body>
 </html>
