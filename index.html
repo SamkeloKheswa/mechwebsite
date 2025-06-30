@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Make Every Child Happy Org</title>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.13/auth0-spa-js.production.js"></script>
   <style>
     body {
       margin: 0;
@@ -122,6 +123,7 @@
       <a href="#newsletter">Newsletter</a>
       <a href="#contact">Contact</a>
     </nav>
+    <div id="login-area" style="margin-top:10px;"></div>
   </header>
 
   <main>
@@ -190,6 +192,34 @@
 
   <!-- Chat button -->
   <button class="chat-btn" onclick="Tawk_API.maximize()">Support Chat</button>
+
+  <!-- Auth0 login script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const auth0Client = await createAuth0Client({
+        domain: "dev-6486lc58s0r2l0r8.us.auth0.com",
+        client_id: "oC5frcSxukA9ysqHATBFeVA2DPNxUzrt",
+        cacheLocation: "localstorage"
+      });
+
+      if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
+        await auth0Client.handleRedirectCallback();
+        window.history.replaceState({}, document.title, "/");
+      }
+
+      const isAuthenticated = await auth0Client.isAuthenticated();
+
+      const loginArea = document.getElementById("login-area");
+      if (isAuthenticated) {
+        loginArea.innerHTML = `<button onclick="logout()">Logout</button>`;
+      } else {
+        loginArea.innerHTML = `<button onclick="login()">Login</button>`;
+      }
+
+      window.login = () => auth0Client.loginWithRedirect();
+      window.logout = () => auth0Client.logout({ returnTo: window.location.origin });
+    });
+  </script>
 
 </body>
 </html>
