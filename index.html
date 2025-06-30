@@ -93,7 +93,6 @@
     #newsletter a:hover {
       background-color: #e04e47;
     }
-    /* floating chat button */
     .chat-btn {
       position: fixed;
       bottom: 25px;
@@ -107,6 +106,15 @@
       cursor: pointer;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
       z-index: 1000;
+    }
+    #login-area button {
+      background-color: #ff5e57;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -133,19 +141,14 @@
     </div>
 
     <div class="section" id="about">
-     <h2>About Us</h2>
-  <p>
-    Founded in 2025, Make Every Child Happy Organization (MECH) is a passionate and dedicated non-profit organization committed to transforming the lives of children and youth across KwaZulu-Natal and beyond. Our mission is to foster holistic development by providing access to quality education, essential wellness services, and empowerment initiatives that equip young people with the tools they need to succeed in life.
-  </p>
-  <p>
-    At MECH, we believe that every child deserves the opportunity to reach their full potential, regardless of their background or circumstances. Through collaborative community engagement, strategic partnerships, and volunteer-driven programs, we focus on addressing critical needs such as educational support, access to personal care products, nutritional assistance, and life skills training.
-  </p>
-  <p>
-    Since our inception, we have actively worked to create safe and nurturing environments where children can thrive academically, physically, and emotionally. Our projects span from supplying sanitary products to young girls in underserved communities, organizing career expos to inspire and guide learners, to offering mentorship programs that encourage leadership and self-confidence.
-  </p>
-  <p>
-    Guided by our core values of compassion, integrity, and empowerment, Make Every Child Happy Organization continuously strives to build a brighter future for the children we serve. We welcome individuals, businesses, and organizations to join us in making a meaningful difference and ensuring that every child experiences happiness, hope, and opportunity.
-  </p>
+      <h2>About Us</h2>
+      <p>
+        Founded in 2025, Make Every Child Happy Organization (MECH) is a passionate and dedicated non-profit committed to transforming the lives of children across KwaZulu-Natal and beyond.
+      </p>
+      <p>
+        Our mission is to foster holistic development by providing access to quality education, wellness services, and empowerment initiatives. We believe every child deserves the opportunity to reach their full potential, regardless of their background.
+      </p>
+    </div>
 
     <div class="section" id="team">
       <h2>Our Team</h2>
@@ -161,14 +164,14 @@
         <h3>Khulekani Myende</h3>
         <h3>Treasurer</h3>
         <p>Email: <a href="mailto:Treasurer.MECH@outlook.com">Send Email</a></p>
-        <p>Call : <a href="tel:0697661755">Call Now</a></p>
+        <p>Call: <a href="tel:0697661755">Call Now</a></p>
       </div>
       <div class="team-member">
         <img src="logo.jpg" alt="Themba Kheswa" class="team-photo" />
         <h3>Themba Samkelo Thusi Kheswa</h3>
         <h3>Senior Director</h3>
-        <p>Email: <a href="mailto:Founder.MECH@outlook.com">Email Now</a></p>
-        <p>Call : <a href="tel:0670226846">Call Now</a></p>
+        <p>Email: <a href="mailto:Founder.MECH@outlook.com">Send Email</a></p>
+        <p>Call: <a href="tel:0670226846">Call Now</a></p>
       </div>
     </div>
 
@@ -195,43 +198,57 @@
   <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/685d4bd9ae5fff190bf6282e/1ium70sfr';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/685d4bd9ae5fff190bf6282e/1ium70sfr';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
     })();
   </script>
 
-  <!-- Chat button -->
   <button class="chat-btn" onclick="Tawk_API.maximize()">Support Chat</button>
 
   <!-- Auth0 login script -->
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
-      const auth0Client = await createAuth0Client({
-        domain: "dev-6486lc58s0r2l0r8.us.auth0.com",
-        client_id: "oC5frcSxukA9ysqHATBFeVA2DPNxUzrt",
-        cacheLocation: "localstorage"
-      });
+      try {
+        const auth0Client = await createAuth0Client({
+          domain: "dev-6486lc58s0r2l0r8.us.auth0.com",
+          client_id: "oC5frcSxukA9ysqHATBFeVA2DPNxUzrt",
+          cacheLocation: "localstorage"
+        });
 
-      if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
-        await auth0Client.handleRedirectCallback();
-        window.history.replaceState({}, document.title, "/");
+        if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
+          await auth0Client.handleRedirectCallback();
+          window.history.replaceState({}, document.title, window.location.pathname);
+        }
+
+        const isAuthenticated = await auth0Client.isAuthenticated();
+        const loginArea = document.getElementById("login-area");
+
+        if (isAuthenticated) {
+          const user = await auth0Client.getUser();
+          loginArea.innerHTML = `
+            <span>Welcome, ${user.name || user.email}</span>
+            <button onclick="logout()">Logout</button>
+          `;
+        } else {
+          loginArea.innerHTML = `<button onclick="login()">Login</button>`;
+        }
+
+        window.login = () => auth0Client.loginWithRedirect({
+          redirect_uri: "https://mechorg.netlify.app"
+        });
+
+        window.logout = () => auth0Client.logout({
+          returnTo: "https://mechorg.netlify.app"
+        });
+
+      } catch (err) {
+        console.error("Auth0 error: ", err);
+        document.getElementById("login-area").innerHTML = `<span style="color:red">Auth system error</span>`;
       }
-
-      const isAuthenticated = await auth0Client.isAuthenticated();
-
-      const loginArea = document.getElementById("login-area");
-      if (isAuthenticated) {
-        loginArea.innerHTML = `<button onclick="logout()">Logout</button>`;
-      } else {
-        loginArea.innerHTML = `<button onclick="login()">Login</button>`;
-      }
-
-      window.login = () => auth0Client.loginWithRedirect();
-      window.logout = () => auth0Client.logout({ returnTo: window.location.origin });
     });
   </script>
 
