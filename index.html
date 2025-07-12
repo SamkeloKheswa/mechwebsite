@@ -1,64 +1,119 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><title>index.html</title></head><body>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MECH Home | Make Every Child Happy Org</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Make Every Child Happy Org</title>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.13/auth0-spa-js.production.js"></script>
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background: #f8f8f8;
       margin: 0;
       padding: 0;
-      text-align: center;
+      font-family: Arial, sans-serif;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: -1;
     }
     header {
-      background: url('hero.jpg') center/cover no-repeat;
-      height: 80vh;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-    }
-    header > * {
-      position: relative;
-      z-index: 1;
+      background-color: black;
+      color: gold;
+      padding: 20px;
+      text-align: center;
     }
     .logo {
-      width: 100px;
-      border-radius: 50%;
-      border: 3px solid white;
+      width: 80px;
+      margin-bottom: 10px;
     }
-    h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 3rem;
-      margin: 20px 0 10px;
-    }
-    nav {
-      margin-top: 20px;
+    .slogan {
+      font-style: italic;
+      color: #ffd700;
     }
     nav a {
-      background: #ff5e57;
-      color: white;
-      padding: 10px 20px;
-      margin: 8px;
-      border-radius: 30px;
+      margin: 0 10px;
+      color: gold;
       text-decoration: none;
       font-weight: bold;
-      display: inline-block;
     }
-    nav a:hover {
-      background: #e04e47;
+    nav {
+      margin-top: 10px;
+    }
+    main {
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      min-height: 80vh;
+    }
+    footer {
+      text-align: center;
+      padding: 19px;
+      background-color: #333;
+      color: white;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .team-member {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .team-photo {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid gold;
+    }
+    #newsletter {
+      background: #f5f5f5;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      margin: 40px auto;
+      max-width: 600px;
+    }
+    #newsletter a {
+      display: inline-block;
+      background-color: #ff5e57;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    #newsletter a:hover {
+      background-color: #e04e47;
+    }
+    .chat-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #ff5e57;
+      color: white;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+    #login-area button {
+      background-color: #ff5e57;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -67,19 +122,134 @@
   <header>
     <img src="logo.jpg" alt="MECH Logo" class="logo" />
     <h1>Make Every Child Happy Org</h1>
-    <p>Empowering Children. Building Futures.</p>
+    <p class="slogan">Brightening Futures Together</p>
     <nav>
-      <a href="about.html" target="_blank">About</a>
-      <a href="team.html" target="_blank">Team</a>
-      <a href="events.html" target="_blank">Events</a>
-      <a href="blog.html" target="_blank">Blog</a>
-      <a href="documents.html" target="_blank">Documents</a>
-      <a href="newsletter.html" target="_blank">Newsletter</a>
-      <a href="donate.html" target="_blank">Donate</a>
-      <a href="contact.html" target="_blank">Contact</a>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#team">Team</a>
+      <a href="#newsletter">Newsletter</a>
+      <a href="#contact">Contact</a>
     </nav>
+    <div id="login-area" style="margin-top:20px;"></div>
   </header>
+
+  <main>
+    <div class="section" id="home">
+      <h2>Welcome to Make Every Child Happy Org</h2>
+      <p>We are a registered South African Non-Profit Organisation focused on uplifting and empowering children in underprivileged communities.</p>
+    </div>
+
+    <div class="section" id="about">
+      <h2>About Us</h2>
+      <p>
+        Founded in 2025, Make Every Child Happy Organization (MECH) is a passionate and dedicated non-profit committed to transforming the lives of children across KwaZulu-Natal and beyond.
+      </p>
+      <p>
+        Our mission is to foster holistic development by providing access to quality education, wellness services, and empowerment initiatives. We believe every child deserves the opportunity to reach their full potential, regardless of their background.
+      </p>
+    </div>
+
+    <div class="section" id="team">
+      <h2>Our Team</h2>
+      <div class="team-member">
+        <img src="amahle.jpg" alt="Miss Kheswa" class="team-photo" />
+        <h3>Slindokuhle Amahle Kheswa</h3>
+        <h3>Senior Secretary</h3>
+        <p>Email: <a href="mailto:kheswaamahle64@gmail.com">Send Email</a></p>
+        <p>Call: <a href="tel:0711416353">Call Now</a></p>
+      </div>
+      <div class="team-member">
+        <img src="logo.jpg" alt="Khulekani Myende" class="team-photo" />
+        <h3>Khulekani Myende</h3>
+        <h3>Treasurer</h3>
+        <p>Email: <a href="mailto:Treasurer.MECH@outlook.com">Send Email</a></p>
+        <p>Call: <a href="tel:0697661755">Call Now</a></p>
+      </div>
+      <div class="team-member">
+        <img src="logo.jpg" alt="Themba Kheswa" class="team-photo" />
+        <h3>Themba Samkelo Thusi Kheswa</h3>
+        <h3>Senior Director</h3>
+        <p>Email: <a href="mailto:Founder.MECH@outlook.com">Send Email</a></p>
+        <p>Call: <a href="tel:0670226846">Call Now</a></p>
+      </div>
+    </div>
+
+    <div class="section" id="newsletter">
+      <h2>Subscribe to Our Newsletter</h2>
+      <p>Stay up to date with our news, projects, and events!</p>
+      <a href="http://eepurl.com/jh9Kyc" target="_blank">Sign Up Now</a>
+    </div>
+
+    <div class="section" id="contact">
+      <h2>Contact Us</h2>
+      <p><strong>Address:</strong> B1312 Msolwa Road, Mpumalanga B, Hammarsdale, 3699</p>
+      <p><strong>Email:</strong> Marketing.MECH2025@outlook.com</p>
+      <p><strong>Phone:</strong> 067 022 6846</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>Registration Number: 2025 / 464075 / 08</p>
+    <p>&copy; 2025 Make Every Child Happy Org</p>
+  </footer>
+
+  <!-- Tawk.to live chat -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/685d4bd9ae5fff190bf6282e/1ium70sfr';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+
+  <button class="chat-btn" onclick="Tawk_API.maximize()">Support Chat</button>
+
+  <!-- Auth0 login script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const auth0Client = await createAuth0Client({
+          domain: "dev-6486lc58s0r2l0r8.us.auth0.com",
+          client_id: "oC5frcSxukA9ysqHATBFeVA2DPNxUzrt",
+          cacheLocation: "localstorage"
+        });
+
+        if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
+          await auth0Client.handleRedirectCallback();
+          window.history.replaceState({}, document.title, window.location.pathname);
+        }
+
+        const isAuthenticated = await auth0Client.isAuthenticated();
+        const loginArea = document.getElementById("login-area");
+
+        if (isAuthenticated) {
+          const user = await auth0Client.getUser();
+          loginArea.innerHTML = `
+            <span>Welcome, ${user.name || user.email}</span>
+            <button onclick="logout()">Logout</button>
+          `;
+        } else {
+          loginArea.innerHTML = `<button onclick="login()">Login</button>`;
+        }
+
+        window.login = () => auth0Client.loginWithRedirect({
+          redirect_uri: "https://mechorg.netlify.app"
+        });
+
+        window.logout = () => auth0Client.logout({
+          returnTo: "https://mechorg.netlify.app"
+        });
+
+      } catch (err) {
+        console.error("Auth0 error: ", err);
+        document.getElementById("login-area").innerHTML = `<span style="color:red">Auth system error</span>`;
+      }
+    });
+  </script>
 
 </body>
 </html>
-</body></html>
