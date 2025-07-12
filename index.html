@@ -2,101 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Make Every Child Happy Org</title>
-  <meta name="description" content="Empowering South African children through education, support, and wellness.">
   <link rel="icon" href="logo.jpg" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet"/>
+  <meta name="description" content="Empowering South African children through education, support, and wellness.">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #f9f9f9;
+      background-color: #f4f4f4;
       color: #333;
     }
-
     header {
       background: url('hero.jpg') center/cover no-repeat;
-      color: white;
       height: 90vh;
+      color: white;
+      text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
       position: relative;
-      text-align: center;
     }
-
-    header::after {
+    header::before {
       content: '';
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      z-index: 0;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
     }
-
     header * {
       position: relative;
       z-index: 1;
     }
-
     .logo {
-      width: 100px;
+      width: 90px;
       border-radius: 50%;
-      border: 2px solid white;
+      border: 2px solid #fff;
       margin-bottom: 10px;
     }
-
     .hero-title {
+      font-family: 'Pacifico', cursive;
       font-size: 2.8rem;
-      margin: 10px 0;
     }
-
     .hero-subtitle {
       font-size: 1.2rem;
       max-width: 600px;
       margin: auto;
-      margin-bottom: 20px;
     }
-
     .btn {
+      margin-top: 15px;
       display: inline-block;
-      margin: 10px;
       padding: 12px 25px;
       background: #ff5e57;
       color: white;
       border: none;
       border-radius: 5px;
-      text-decoration: none;
       font-weight: bold;
-      transition: background 0.3s ease;
+      text-decoration: none;
     }
-
-    .btn:hover {
-      background: #e04e47;
-    }
-
     nav {
-      background: #222;
-      padding: 10px 0;
+      background: #111;
       text-align: center;
+      padding: 10px;
     }
-
     nav a {
-      margin: 0 15px;
       color: gold;
+      margin: 0 12px;
       text-decoration: none;
       font-weight: bold;
     }
-
     #login-area {
-      margin-top: 15px;
       text-align: center;
+      margin-top: 10px;
     }
-
     #login-area button {
       background-color: #ff5e57;
       color: white;
@@ -104,94 +82,73 @@
       padding: 8px 15px;
       border-radius: 5px;
       cursor: pointer;
-      font-weight: bold;
     }
-
-    .section {
+    section {
       padding: 60px 20px;
-      max-width: 1200px;
+      max-width: 1000px;
       margin: auto;
     }
-
-    .section h2 {
+    section h2 {
       text-align: center;
-      font-size: 2.2rem;
-      margin-bottom: 30px;
-      color: #222;
+      font-family: 'Pacifico', cursive;
+      font-size: 2rem;
     }
-
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
     }
-
     .card {
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
       padding: 20px;
+      border-radius: 8px;
       text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-
     .card img {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       border: 3px solid gold;
-      margin-bottom: 10px;
+      object-fit: cover;
     }
-
-    .newsletter form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-    }
-
     .newsletter input {
       padding: 10px;
-      width: 80%;
-      max-width: 400px;
+      width: 70%;
+      max-width: 300px;
       border: 1px solid #ccc;
       border-radius: 5px;
+      margin: 10px 0;
     }
-
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
-
     .chat-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
       background: #ff5e57;
       color: white;
-      padding: 12px 20px;
       border: none;
+      padding: 12px 20px;
       border-radius: 30px;
       font-weight: bold;
       cursor: pointer;
       z-index: 1000;
     }
-
-    @media (max-width: 600px) {
-      .hero-title { font-size: 2rem; }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 25px;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="logo.jpg" class="logo" alt="MECH Logo">
+    <img src="logo.jpg" alt="MECH Logo" class="logo" />
     <h1 class="hero-title">Make Every Child Happy Org</h1>
-    <p class="hero-subtitle">Brightening futures through education, wellness, and community support in South Africa.</p>
-    <a href="#about" class="btn">Learn More</a>
-    <a href="#newsletter" class="btn">Subscribe</a>
+    <p class="hero-subtitle">Empowering futures through education, wellness and opportunity.</p>
+    <a href="#donate" class="btn">Donate</a>
   </header>
 
   <nav>
@@ -199,54 +156,67 @@
     <a href="#team">Team</a>
     <a href="#newsletter">Newsletter</a>
     <a href="#contact">Contact</a>
+    <a href="#donate">Donate</a>
   </nav>
 
   <div id="login-area"></div>
 
-  <section id="about" class="section" data-aos="fade-up">
+  <section id="about">
     <h2>About Us</h2>
-    <p style="text-align:center; max-width: 800px; margin: auto;">
-      MECH is a youth-led South African NPO founded in 2025. We empower children in underprivileged communities through education, access to wellness, and opportunities to develop their future potential.
+    <p style="text-align:center;">
+      Founded in 2025, MECH is a youth-led non-profit focused on empowering children in underprivileged communities in South Africa through education, health support, and skills development.
     </p>
   </section>
 
-  <section id="team" class="section" data-aos="fade-up">
-    <h2>Meet Our Team</h2>
+  <section id="team">
+    <h2>Our Leadership</h2>
     <div class="grid">
       <div class="card">
         <img src="amahle.jpg" alt="Amahle Kheswa" onerror="this.src='logo.jpg'">
         <h3>Slindokuhle Amahle Kheswa</h3>
-        <p>Senior Secretary</p>
+        <p>Chief Operations Officer (COO)</p>
         <p><a href="mailto:kheswaamahle64@gmail.com">Email</a> | <a href="tel:0711416353">Call</a></p>
       </div>
       <div class="card">
         <img src="logo.jpg" alt="Khulekani Myende">
         <h3>Khulekani Myende</h3>
-        <p>Treasurer</p>
+        <p>Chief Financial Officer (CFO)</p>
         <p><a href="mailto:Treasurer.MECH@outlook.com">Email</a> | <a href="tel:0697661755">Call</a></p>
       </div>
       <div class="card">
         <img src="logo.jpg" alt="Themba Kheswa">
         <h3>Themba Samkelo Thusi Kheswa</h3>
-        <p>Senior Director</p>
+        <p>Chief Executive Officer (CEO)</p>
         <p><a href="mailto:Founder.MECH@outlook.com">Email</a> | <a href="tel:0670226846">Call</a></p>
       </div>
     </div>
   </section>
 
-  <section id="newsletter" class="section newsletter" data-aos="fade-up">
+  <section id="newsletter">
     <h2>Subscribe to Our Newsletter</h2>
-    <p style="text-align: center;">Stay connected to MECH updates, campaigns and impact stories.</p>
-    <form action="https://eepurl.com/jh9Kyc" method="post" target="_blank">
-      <input type="email" name="EMAIL" placeholder="Enter your email" required>
-      <button type="submit" class="btn">Subscribe</button>
-    </form>
+    <div style="text-align:center;">
+      <form action="https://eepurl.com/jh9Kyc" target="_blank">
+        <input type="email" name="EMAIL" placeholder="Your email address" required>
+        <br>
+        <button class="btn">Subscribe</button>
+      </form>
+    </div>
   </section>
 
-  <section id="contact" class="section" data-aos="fade-up">
+  <section id="donate">
+    <h2>Support Our Work</h2>
+    <p style="text-align:center;">
+      Your donations help us provide sanitary care packs, food parcels, and school materials to learners in need. You can make a secure donation using Ozow.
+    </p>
+    <div style="text-align:center; margin-top:20px;">
+      <a class="btn" href="https://secure.ozow.com/MECHDONATE" target="_blank">Donate with Ozow</a>
+    </div>
+  </section>
+
+  <section id="contact">
     <h2>Contact Us</h2>
     <p style="text-align:center;">
-      <strong>Address:</strong> B1312 Msolwa Road, Mpumalanga B, Hammarsdale, 3699<br>
+      <strong>Address:</strong> B1312 Msolwa Road, Mpumalanga Township, Hammarsdale, 3699<br>
       <strong>Email:</strong> <a href="mailto:Marketing.MECH2025@outlook.com">Marketing.MECH2025@outlook.com</a><br>
       <strong>Phone:</strong> <a href="tel:0670226846">067 022 6846</a>
     </p>
@@ -259,14 +229,14 @@
 
   <!-- Support Chat (Tawk.to) -->
   <script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = 'https://embed.tawk.to/685d4bd9ae5fff190bf6282e/1ium70sfr';
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin', '*');
-      s0.parentNode.insertBefore(s1, s0);
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/685d4bd9ae5fff190bf6282e/1ium70sfr';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
     })();
   </script>
   <button class="chat-btn" onclick="Tawk_API.maximize()">Support Chat</button>
@@ -297,24 +267,15 @@
           loginArea.innerHTML = `<button onclick="login()">Login</button>`;
         }
 
-        window.login = () => auth0Client.loginWithRedirect({
-          redirect_uri: "https://mechorg.netlify.app"
-        });
-
-        window.logout = () => auth0Client.logout({
-          returnTo: "https://mechorg.netlify.app"
-        });
+        window.login = () => auth0Client.loginWithRedirect({ redirect_uri: window.location.origin });
+        window.logout = () => auth0Client.logout({ returnTo: window.location.origin });
 
       } catch (err) {
         console.error("Auth0 error: ", err);
-        document.getElementById("login-area").innerHTML = `<span style="color:red">Auth error</span>`;
+        document.getElementById("login-area").innerHTML = `<span style="color:red">Auth system error</span>`;
       }
     });
   </script>
-
-  <!-- AOS scroll animation -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>AOS.init();</script>
 
 </body>
 </html>
