@@ -92,6 +92,21 @@
       font-weight: bold;
     }
 
+    #login-area {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    #login-area button {
+      background-color: #ff5e57;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
     .section {
       padding: 60px 20px;
       max-width: 1200px;
@@ -150,6 +165,20 @@
       padding: 25px;
     }
 
+    .chat-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff5e57;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
     @media (max-width: 600px) {
       .hero-title { font-size: 2rem; }
     }
@@ -172,10 +201,12 @@
     <a href="#contact">Contact</a>
   </nav>
 
+  <div id="login-area"></div>
+
   <section id="about" class="section" data-aos="fade-up">
     <h2>About Us</h2>
     <p style="text-align:center; max-width: 800px; margin: auto;">
-      Make Every Child Happy Organization (MECH) is a youth-led South African NPO, established in 2025. We focus on supporting children in under-resourced communities by promoting access to education, wellness, mentorship, and opportunities that build brighter futures.
+      MECH is a youth-led South African NPO founded in 2025. We empower children in underprivileged communities through education, access to wellness, and opportunities to develop their future potential.
     </p>
   </section>
 
@@ -205,7 +236,7 @@
 
   <section id="newsletter" class="section newsletter" data-aos="fade-up">
     <h2>Subscribe to Our Newsletter</h2>
-    <p style="text-align: center;">Get updates about our projects, events, and success stories.</p>
+    <p style="text-align: center;">Stay connected to MECH updates, campaigns and impact stories.</p>
     <form action="https://eepurl.com/jh9Kyc" method="post" target="_blank">
       <input type="email" name="EMAIL" placeholder="Enter your email" required>
       <button type="submit" class="btn">Subscribe</button>
@@ -226,7 +257,62 @@
     <p>&copy; 2025 Make Every Child Happy Org</p>
   </footer>
 
-  <!-- Animate On Scroll JS -->
+  <!-- Support Chat (Tawk.to) -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/685d4bd9ae5fff190bf6282e/1ium70sfr';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  <button class="chat-btn" onclick="Tawk_API.maximize()">Support Chat</button>
+
+  <!-- Auth0 Login -->
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.13/auth0-spa-js.production.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const auth0Client = await createAuth0Client({
+          domain: "dev-6486lc58s0r2l0r8.us.auth0.com",
+          client_id: "oC5frcSxukA9ysqHATBFeVA2DPNxUzrt",
+          cacheLocation: "localstorage"
+        });
+
+        if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
+          await auth0Client.handleRedirectCallback();
+          window.history.replaceState({}, document.title, window.location.pathname);
+        }
+
+        const isAuthenticated = await auth0Client.isAuthenticated();
+        const loginArea = document.getElementById("login-area");
+
+        if (isAuthenticated) {
+          const user = await auth0Client.getUser();
+          loginArea.innerHTML = `<span>Welcome, ${user.name || user.email}</span> <button onclick="logout()">Logout</button>`;
+        } else {
+          loginArea.innerHTML = `<button onclick="login()">Login</button>`;
+        }
+
+        window.login = () => auth0Client.loginWithRedirect({
+          redirect_uri: "https://mechorg.netlify.app"
+        });
+
+        window.logout = () => auth0Client.logout({
+          returnTo: "https://mechorg.netlify.app"
+        });
+
+      } catch (err) {
+        console.error("Auth0 error: ", err);
+        document.getElementById("login-area").innerHTML = `<span style="color:red">Auth error</span>`;
+      }
+    });
+  </script>
+
+  <!-- AOS scroll animation -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>AOS.init();</script>
 
