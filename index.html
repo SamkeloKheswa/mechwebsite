@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Make Every Child Happy Organization is a South African NPO focused on uplifting children through education and care."/>
+  <meta property="og:title" content="Make Every Child Happy Org" />
+  <meta property="og:description" content="Empowering children across South Africa through education, wellness, and support." />
+  <meta property="og:image" content="logo.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="favicon.ico" />
   <title>Make Every Child Happy Org</title>
+
   <script src="https://cdn.auth0.com/js/auth0-spa-js/1.13/auth0-spa-js.production.js"></script>
+  
   <style>
     body {
       margin: 0;
@@ -14,7 +22,7 @@
       background-size: cover;
       position: relative;
     }
-    /* dim overlay */
+
     body::before {
       content: "";
       position: fixed;
@@ -25,47 +33,50 @@
       background: rgba(0,0,0,0.6);
       z-index: -1;
     }
+
     header {
       background-color: black;
       color: gold;
       padding: 20px;
       text-align: center;
     }
+
     .logo {
       width: 80px;
       margin-bottom: 10px;
     }
+
     .slogan {
       font-style: italic;
       color: #ffd700;
     }
+
+    nav {
+      margin-top: 10px;
+    }
+
     nav a {
       margin: 0 10px;
       color: gold;
       text-decoration: none;
       font-weight: bold;
     }
-    nav {
-      margin-top: 10px;
-    }
+
     main {
       padding: 20px;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.95);
       min-height: 80vh;
     }
-    footer {
-      text-align: center;
-      padding: 19px;
-      background-color: #333;
-      color: white;
-    }
+
     .section {
       margin-bottom: 40px;
     }
+
     .team-member {
       text-align: center;
       margin-bottom: 30px;
     }
+
     .team-photo {
       width: 150px;
       height: 150px;
@@ -73,6 +84,7 @@
       border-radius: 50%;
       border: 3px solid gold;
     }
+
     #newsletter {
       background: #f5f5f5;
       padding: 30px;
@@ -81,18 +93,29 @@
       margin: 40px auto;
       max-width: 600px;
     }
-    #newsletter a {
-      display: inline-block;
+
+    #newsletter input {
+      padding: 10px;
+      width: 60%;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #newsletter button {
       background-color: #ff5e57;
       color: white;
       padding: 10px 20px;
+      border: none;
       border-radius: 5px;
-      text-decoration: none;
       font-weight: bold;
+      cursor: pointer;
     }
-    #newsletter a:hover {
+
+    #newsletter button:hover {
       background-color: #e04e47;
     }
+
     .chat-btn {
       position: fixed;
       bottom: 25px;
@@ -107,6 +130,7 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
       z-index: 1000;
     }
+
     #login-area button {
       background-color: #ff5e57;
       border: none;
@@ -115,6 +139,29 @@
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 19px;
+      background-color: #333;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav a {
+        margin: 5px;
+        display: inline-block;
+      }
+      .team-photo {
+        width: 100px;
+        height: 100px;
+      }
     }
   </style>
 </head>
@@ -152,22 +199,25 @@
 
     <div class="section" id="team">
       <h2>Our Team</h2>
+
       <div class="team-member">
-        <img src="amahle.jpg" alt="Miss Kheswa" class="team-photo" />
+        <img src="amahle.jpg" alt="Photo of Miss Kheswa" class="team-photo" onerror="this.src='placeholder.jpg'" />
         <h3>Slindokuhle Amahle Kheswa</h3>
         <h3>Senior Secretary</h3>
         <p>Email: <a href="mailto:kheswaamahle64@gmail.com">Send Email</a></p>
         <p>Call: <a href="tel:0711416353">Call Now</a></p>
       </div>
+
       <div class="team-member">
-        <img src="logo.jpg" alt="Khulekani Myende" class="team-photo" />
+        <img src="logo.jpg" alt="Photo of Khulekani Myende" class="team-photo" />
         <h3>Khulekani Myende</h3>
         <h3>Treasurer</h3>
         <p>Email: <a href="mailto:Treasurer.MECH@outlook.com">Send Email</a></p>
         <p>Call: <a href="tel:0697661755">Call Now</a></p>
       </div>
+
       <div class="team-member">
-        <img src="logo.jpg" alt="Themba Kheswa" class="team-photo" />
+        <img src="logo.jpg" alt="Photo of Themba Kheswa" class="team-photo" />
         <h3>Themba Samkelo Thusi Kheswa</h3>
         <h3>Senior Director</h3>
         <p>Email: <a href="mailto:Founder.MECH@outlook.com">Send Email</a></p>
@@ -178,14 +228,18 @@
     <div class="section" id="newsletter">
       <h2>Subscribe to Our Newsletter</h2>
       <p>Stay up to date with our news, projects, and events!</p>
-      <a href="http://eepurl.com/jh9Kyc" target="_blank">Sign Up Now</a>
+      <form action="https://eepurl.com/jh9Kyc" method="post" target="_blank">
+        <input type="email" name="EMAIL" placeholder="Enter your email" required />
+        <br>
+        <button type="submit">Sign Up Now</button>
+      </form>
     </div>
 
     <div class="section" id="contact">
       <h2>Contact Us</h2>
       <p><strong>Address:</strong> B1312 Msolwa Road, Mpumalanga B, Hammarsdale, 3699</p>
-      <p><strong>Email:</strong> Marketing.MECH2025@outlook.com</p>
-      <p><strong>Phone:</strong> 067 022 6846</p>
+      <p><strong>Email:</strong> <a href="mailto:Marketing.MECH2025@outlook.com">Marketing.MECH2025@outlook.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:0670226846">067 022 6846</a></p>
     </div>
   </main>
 
@@ -194,22 +248,22 @@
     <p>&copy; 2025 Make Every Child Happy Org</p>
   </footer>
 
-  <!-- Tawk.to live chat -->
+  <!-- Tawk.to Live Chat -->
   <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-      s1.async=true;
-      s1.src='https://embed.tawk.to/685d4bd9ae5fff190bf6282e/1ium70sfr';
-      s1.charset='UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1,s0);
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/685d4bd9ae5fff190bf6282e/1ium70sfr';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
     })();
   </script>
 
   <button class="chat-btn" onclick="Tawk_API.maximize()">Support Chat</button>
 
-  <!-- Auth0 login script -->
+  <!-- Auth0 Script -->
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
       try {
