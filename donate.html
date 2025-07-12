@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head><meta charset='UTF-8'><title>donate.html</title></head><body>
+<h1>Donate via Ozow</h1>
+<p>Make a secure donation to Make Every Child Happy Org using Ozow.</p>
+<form id="ozowForm">
+  <input type="hidden" name="SiteCode" value="MAK-MAK-034">
+  <input type="hidden" name="SiteName" value="MAKE EVERY CHILD HAPPY ORG NPC">
+  <label for="amount">Enter Donation Amount (ZAR):</label><br>
+  <input type="number" id="amount" name="Amount" min="10" required><br>
+  <button type="submit">Donate with Ozow</button>
+</form>
+<div id="response"></div>
+<script>
+  const form = document.getElementById('ozowForm');
+  const response = document.getElementById('response');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const amount = form.Amount.value;
+    if (amount < 10) {
+      response.innerHTML = "<p style='color:red;'>Minimum donation is R10</p>";
+      return;
+    }
+    response.innerHTML = "<p style='color:green;'>Redirecting to Ozow for R" + amount + " payment...</p>";
+    window.location.href = "https://secure.ozow.com/MECHDONATE?amount=" + amount;
+  });
+</script>
+</body></html>
