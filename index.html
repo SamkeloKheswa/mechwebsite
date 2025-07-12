@@ -2,19 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Make Every Child Happy Org</title>
   <link rel="icon" href="logo.jpg" />
-  <meta name="description" content="Empowering South African children through education, support, and wellness.">
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    body {
-      margin: 0;
+    /* Reset & base */
+    body, h1, h2, h3, p, a, button {
+      margin: 0; padding: 0; box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
-      background-color: #f4f4f4;
       color: #333;
     }
+    body {
+      background: #f4f4f4;
+      line-height: 1.6;
+    }
+    a {
+      color: #ff5e57;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Header */
     header {
+      position: relative;
       background: url('hero.jpg') center/cover no-repeat;
       height: 90vh;
       color: white;
@@ -22,105 +35,229 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      position: relative;
+      align-items: center;
+      padding: 0 20px;
     }
     header::before {
-      content: '';
+      content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0,0,0,0.6);
+      z-index: 0;
     }
-    header * {
+    header > * {
       position: relative;
       z-index: 1;
     }
     .logo {
-      width: 90px;
+      width: 100px;
       border-radius: 50%;
-      border: 2px solid #fff;
-      margin-bottom: 10px;
+      border: 3px solid white;
+      margin-bottom: 15px;
     }
     .hero-title {
       font-family: 'Pacifico', cursive;
-      font-size: 2.8rem;
+      font-size: 3rem;
+      margin-bottom: 10px;
     }
     .hero-subtitle {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       max-width: 600px;
-      margin: auto;
+      margin: 0 auto 20px;
     }
     .btn {
-      margin-top: 15px;
-      display: inline-block;
-      padding: 12px 25px;
       background: #ff5e57;
       color: white;
       border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin: 5px;
+      display: inline-block;
     }
+    .btn:hover {
+      background: #e04e47;
+      text-decoration: none;
+      color: white;
+    }
+    /* Navigation */
     nav {
       background: #111;
       text-align: center;
-      padding: 10px;
+      padding: 12px 0;
+      font-weight: 700;
     }
     nav a {
       color: gold;
-      margin: 0 12px;
-      text-decoration: none;
-      font-weight: bold;
+      margin: 0 18px;
+      font-size: 1rem;
+      vertical-align: middle;
+    }
+    nav a:hover {
+      color: #ff5e57;
     }
     #login-area {
       text-align: center;
-      margin-top: 10px;
+      margin: 12px 0;
     }
     #login-area button {
       background-color: #ff5e57;
-      color: white;
       border: none;
-      padding: 8px 15px;
-      border-radius: 5px;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 20px;
       cursor: pointer;
+      font-weight: 700;
     }
+    /* Sections */
     section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
     }
     section h2 {
-      text-align: center;
       font-family: 'Pacifico', cursive;
-      font-size: 2rem;
+      font-size: 2.4rem;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #222;
     }
+    /* About */
+    #about p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    /* Team Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
       gap: 30px;
       margin-top: 30px;
     }
     .card {
       background: white;
-      padding: 20px;
-      border-radius: 8px;
+      padding: 25px 20px;
+      border-radius: 10px;
       text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
     }
     .card img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      border: 3px solid gold;
+      width: 120px;
+      height: 120px;
       object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid gold;
+      margin-bottom: 15px;
     }
-    .newsletter input {
-      padding: 10px;
-      width: 70%;
-      max-width: 300px;
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: #ff5e57;
+    }
+    .card p {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    /* Newsletter */
+    #newsletter form {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #newsletter input[type="email"] {
+      padding: 12px 15px;
+      width: 100%;
+      font-size: 1rem;
+      border-radius: 6px;
       border: 1px solid #ccc;
-      border-radius: 5px;
-      margin: 10px 0;
+      margin-bottom: 15px;
     }
+    #newsletter button {
+      width: 100%;
+      cursor: pointer;
+    }
+    /* Donate */
+    #donate p {
+      max-width: 600px;
+      margin: 0 auto 25px;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    #donate a.btn {
+      display: block;
+      max-width: 220px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    /* Contact */
+    #contact p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      text-align: center;
+      line-height: 1.6;
+    }
+    /* Documents Section */
+    #documents ul {
+      max-width: 400px;
+      margin: 0 auto;
+      padding-left: 20px;
+      list-style-type: disc;
+      font-size: 1.1rem;
+      color: #444;
+    }
+    #documents ul li {
+      margin: 12px 0;
+    }
+    #documents ul li a {
+      color: #ff5e57;
+      font-weight: 700;
+    }
+    #documents ul li a:hover {
+      text-decoration: underline;
+    }
+    /* Events & Blog */
+    #events .event-card, #blog .blog-post {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+    }
+    #events .event-title, #blog .post-title {
+      color: #ff5e57;
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+    #events .event-date {
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #333;
+    }
+    #blog .post-date {
+      font-style: italic;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+      color: #777;
+    }
+    /* Footer */
+    footer {
+      background: #222;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    /* Chat button */
     .chat-btn {
       position: fixed;
       bottom: 20px;
@@ -128,17 +265,26 @@
       background: #ff5e57;
       color: white;
       border: none;
-      padding: 12px 20px;
+      padding: 14px 24px;
       border-radius: 30px;
-      font-weight: bold;
+      font-weight: 700;
       cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       z-index: 1000;
+      transition: background 0.3s ease;
     }
-    footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 25px;
+    .chat-btn:hover {
+      background: #e04e47;
+    }
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      nav a {
+        margin: 0 8px;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -147,13 +293,16 @@
   <header>
     <img src="logo.jpg" alt="MECH Logo" class="logo" />
     <h1 class="hero-title">Make Every Child Happy Org</h1>
-    <p class="hero-subtitle">Empowering futures through education, wellness and opportunity.</p>
+    <p class="hero-subtitle">Empowering futures through education, wellness, and opportunity.</p>
     <a href="#donate" class="btn">Donate</a>
   </header>
 
   <nav>
     <a href="#about">About</a>
     <a href="#team">Team</a>
+    <a href="#events">Events</a>
+    <a href="#blog">Blog</a>
+    <a href="#documents">Documents</a>
     <a href="#newsletter">Newsletter</a>
     <a href="#contact">Contact</a>
     <a href="#donate">Donate</a>
@@ -163,8 +312,8 @@
 
   <section id="about">
     <h2>About Us</h2>
-    <p style="text-align:center;">
-      Founded in 2025, MECH is a youth-led non-profit focused on empowering children in underprivileged communities in South Africa through education, health support, and skills development.
+    <p>
+      Founded in 2025, Make Every Child Happy Organization (MECH) is a youth-led South African non-profit dedicated to uplifting children in underprivileged communities by providing education, wellness services, and empowerment initiatives.
     </p>
   </section>
 
@@ -172,19 +321,19 @@
     <h2>Our Leadership</h2>
     <div class="grid">
       <div class="card">
-        <img src="amahle.jpg" alt="Amahle Kheswa" onerror="this.src='logo.jpg'">
+        <img src="amahle.jpg" alt="Slindokuhle Amahle Kheswa" onerror="this.src='logo.jpg'" />
         <h3>Slindokuhle Amahle Kheswa</h3>
         <p>Chief Operations Officer (COO)</p>
         <p><a href="mailto:kheswaamahle64@gmail.com">Email</a> | <a href="tel:0711416353">Call</a></p>
       </div>
       <div class="card">
-        <img src="logo.jpg" alt="Khulekani Myende">
+        <img src="logo.jpg" alt="Khulekani Myende" />
         <h3>Khulekani Myende</h3>
         <p>Chief Financial Officer (CFO)</p>
         <p><a href="mailto:Treasurer.MECH@outlook.com">Email</a> | <a href="tel:0697661755">Call</a></p>
       </div>
       <div class="card">
-        <img src="logo.jpg" alt="Themba Kheswa">
+        <img src="logo.jpg" alt="Themba Samkelo Thusi Kheswa" />
         <h3>Themba Samkelo Thusi Kheswa</h3>
         <p>Chief Executive Officer (CEO)</p>
         <p><a href="mailto:Founder.MECH@outlook.com">Email</a> | <a href="tel:0670226846">Call</a></p>
@@ -192,32 +341,66 @@
     </div>
   </section>
 
+  <section id="events">
+    <h2>Upcoming Events</h2>
+    <div class="event-card">
+      <h3 class="event-title">1st MECH Career Expo 2025</h3>
+      <p class="event-date"><strong>Date:</strong> April 25, 2025 | <strong>Location:</strong> Phezulu High School Hall</p>
+      <p>Join us for our first-ever Career Expo, connecting Grade 9 learners with industry professionals, exhibitors, and educational institutions to inspire future career choices.</p>
+    </div>
+    <div class="event-card">
+      <h3 class="event-title">Back to School Supplies Drive</h3>
+      <p class="event-date"><strong>Date:</strong> January 10-20, 2025 | <strong>Location:</strong> Various Schools in KwaZulu-Natal</p>
+      <p>Help us provide essential school supplies to children in need. Donations of stationery, backpacks, and uniforms are welcome.</p>
+    </div>
+  </section>
+
+  <section id="blog">
+    <h2>From Our Blog</h2>
+    <div class="blog-post">
+      <h3 class="post-title">Empowering Youth Through Education</h3>
+      <p class="post-date">Published: March 15, 2025</p>
+      <p>Discover how MECH is making a difference in local communities by promoting education access and skills training among disadvantaged youth.</p>
+      <a href="#">Read more →</a>
+    </div>
+    <div class="blog-post">
+      <h3 class="post-title">Why Sanitary Care Matters</h3>
+      <p class="post-date">Published: February 28, 2025</p>
+      <p>Learn about our sanitary care pack initiatives that support young girls in continuing their education with dignity and confidence.</p>
+      <a href="#">Read more →</a>
+    </div>
+  </section>
+
+  <section id="documents">
+    <h2>Documents</h2>
+    <ul>
+      <li><a href="documents/publications.pdf" target="_blank" rel="noopener">Publications</a></li>
+      <li><a href="documents/notices.pdf" target="_blank" rel="noopener">Notices</a></li>
+      <li><a href="documents/registration_document.pdf" target="_blank" rel="noopener">Registration Document</a></li>
+      <li><a href="documents/form_c_request_paipa.pdf" target="_blank" rel="noopener">Form C Request of PAIPA</a></li>
+      <li><a href="documents/annual_reports.pdf" target="_blank" rel="noopener">Annual Reports</a></li>
+    </ul>
+  </section>
+
   <section id="newsletter">
     <h2>Subscribe to Our Newsletter</h2>
-    <div style="text-align:center;">
-      <form action="https://eepurl.com/jh9Kyc" target="_blank">
-        <input type="email" name="EMAIL" placeholder="Your email address" required>
-        <br>
-        <button class="btn">Subscribe</button>
-      </form>
-    </div>
+    <form action="https://eepurl.com/jh9Kyc" target="_blank" method="post" novalidate>
+      <input type="email" name="EMAIL" placeholder="Enter your email address" required />
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
   </section>
 
   <section id="donate">
     <h2>Support Our Work</h2>
-    <p style="text-align:center;">
-      Your donations help us provide sanitary care packs, food parcels, and school materials to learners in need. You can make a secure donation using Ozow.
-    </p>
-    <div style="text-align:center; margin-top:20px;">
-      <a class="btn" href="https://secure.ozow.com/MECHDONATE" target="_blank">Donate with Ozow</a>
-    </div>
+    <p>Your donations help us provide sanitary care packs, food parcels, and school materials to learners in need. Make a secure donation below:</p>
+    <a href="https://secure.ozow.com/MECHDONATE" target="_blank" class="btn">Donate with Ozow</a>
   </section>
 
   <section id="contact">
     <h2>Contact Us</h2>
-    <p style="text-align:center;">
-      <strong>Address:</strong> B1312 Msolwa Road, Mpumalanga Township, Hammarsdale, 3699<br>
-      <strong>Email:</strong> <a href="mailto:Marketing.MECH2025@outlook.com">Marketing.MECH2025@outlook.com</a><br>
+    <p>
+      <strong>Address:</strong> B1312 Msolwa Road, Mpumalanga Township, Hammarsdale, 3699<br />
+      <strong>Email:</strong> <a href="mailto:Marketing.MECH2025@outlook.com">Marketing.MECH2025@outlook.com</a><br />
       <strong>Phone:</strong> <a href="tel:0670226846">067 022 6846</a>
     </p>
   </section>
@@ -229,9 +412,9 @@
 
   <!-- Support Chat (Tawk.to) -->
   <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      var s1=document.createElement("script"), s0=document.getElementsByTagName("script")[0];
       s1.async=true;
       s1.src='https://embed.tawk.to/685d4bd9ae5fff190bf6282e/1ium70sfr';
       s1.charset='UTF-8';
