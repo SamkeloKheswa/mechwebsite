@@ -3,162 +3,134 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Make Every Child Happy - MECH</title>
+  <title>Make Every Child Happy</title>
   <style>
-    body, html {
+    body {
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      scroll-behavior: smooth;
+      font-family: Arial, sans-serif;
+      background: #fff;
     }
 
-    /* Curtain Cover */
-    .curtain-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: black;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: fadeOut 4s ease 4s forwards;
-    }
-
-    .curtain {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to right, darkred 50%, maroon 50%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .curtain img {
-      position: absolute;
-      top: 10px;
-      height: 184px;
-      width: 284px;
-    }
-
-    .curtain img.left {
-      left: 30px;
-    }
-
-    .curtain img.right {
-      right: 30px;
-    }
-
-    .ribbon {
-      background-color: gold;
-      color: black;
-      padding: 1.2rem 2rem;
-      border-radius: 10px;
-      font-size: 2rem;
-      font-weight: bold;
-      z-index: 2;
-      animation: pulse 1.5s infinite;
+    header {
+      background: linear-gradient(to right, orange, black, red, gold);
+      padding: 10px;
       text-align: center;
+      color: white;
     }
 
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    /* Navigation */
     nav {
-      background-color: black;
-      padding: 1rem;
       display: flex;
       justify-content: center;
       gap: 20px;
+      background-color: #000;
+      padding: 10px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1rem;
-    }
-
-    nav a:hover {
-      color: orange;
-    }
-
-    header {
-      background: linear-gradient(to right, orange, red);
-      color: white;
-      text-align: center;
-      padding: 3rem 1rem;
-    }
-
-    header img {
-      max-width: 200px;
-      margin-bottom: 1rem;
     }
 
     section {
-      padding: 2rem;
+      padding: 20px;
     }
 
-    h2 {
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      border-left: 5px solid gold;
+      padding-left: 10px;
       color: darkred;
     }
 
-    .events img {
-      max-width: 80px;
+    #events img {
+      height: 60px;
       vertical-align: middle;
       margin-left: 10px;
     }
 
-    /* Floating Support Button */
-    #supportButton {
+    /* Floating Chat Button */
+    #supportChatBtn {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #f39c12;
+      background-color: crimson;
       color: white;
-      padding: 10px 16px;
-      border-radius: 30px;
-      font-weight: bold;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      padding: 12px 20px;
+      border: none;
+      border-radius: 25px;
       cursor: pointer;
-      z-index: 999;
+      z-index: 1001;
+      font-weight: bold;
     }
 
-    #supportButton:hover {
-      background-color: #e67e22;
+    /* Curtain Styles */
+    #curtain-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: linear-gradient(to right, darkred 50%, darkred 50%);
+      background-size: 200% 100%;
+      background-position: left;
+      z-index: 2000;
+      animation: openCurtain 3s ease forwards;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    @keyframes openCurtain {
+      0% {
+        background-position: left;
+      }
+      100% {
+        background-position: right;
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    #launch-message {
+      text-align: center;
+      color: white;
+      z-index: 2001;
+    }
+
+    #launch-message img {
+      max-width: 284px;
+      height: 184px;
+    }
+
+    #countdown-timer {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
     }
 
   </style>
 </head>
 <body>
 
-  <!-- Curtain Animation -->
-  <div class="curtain-container">
-    <div class="curtain">
-      <img src="celeb.jpg" class="left" alt="Champagne Left" />
-      <img src="celeb.jpg" class="right" alt="Champagne Right" />
-      <div class="ribbon">🎉 Website Launching on 6 Aug 2025 🎉</div>
+  <!-- Curtain with Countdown -->
+  <div id="curtain-container">
+    <div id="launch-message">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+        <img src="celeb.jpg" width="284" height="184" alt="Celebration" />
+        <div id="countdown-timer">Launching Soon...</div>
+        <img src="celeb.jpg" width="284" height="184" alt="Celebration" />
+      </div>
     </div>
   </div>
 
-  <!-- Support Chat Button -->
-  <div id="supportButton" onclick="toggleTawk()">💬 Support Chat</div>
+  <header>
+    <h1>Make Every Child Happy</h1>
+  </header>
 
-  <!-- Navigation -->
   <nav>
     <a href="#about">About</a>
     <a href="#leadership">Leadership</a>
@@ -167,72 +139,78 @@
     <a href="#donate">Donate</a>
   </nav>
 
-  <!-- Header -->
-  <header>
-    <img src="newlogo.jpg" alt="MECH Logo" />
-    <h1>Make Every Child Happy (MECH)</h1>
-    <p>Empowering Learners. Uplifting Communities.</p>
-  </header>
-
-  <!-- About Section -->
   <section id="about">
-    <h2>About Us</h2>
-    <p>We are a non-profit organization committed to supporting learners from disadvantaged backgrounds with basic needs like sanitary pads, toiletries, and food parcels.</p>
+    <h2 class="section-title">About Us</h2>
+    <p>We are committed to empowering youth and supporting their future through career guidance, donations, and meaningful outreach.</p>
   </section>
 
-  <!-- Leadership Section -->
   <section id="leadership">
-    <h2>Leadership</h2>
+    <h2 class="section-title">Leadership</h2>
     <ul>
-      <li><strong>Mr. TST Kheswa</strong> – Founder & CEO</li>
+      <li><strong>Mr TST Kheswa</strong> – CEO</li>
       <li><strong>Miss SA Bhengu</strong> – Secretary</li>
-      <li><strong>Miss PS Ndlovu</strong> – COO</li>
-      <li><strong>Mr. S Biyela</strong> – Treasurer</li>
+      <li><strong>Miss Phindile Ndlovu</strong> – COO</li>
     </ul>
   </section>
 
-  <!-- Events Section -->
-  <section id="events" class="events">
-    <h2>Upcoming Events</h2>
-    <p>Our career expo is coming soon to local high schools!</p>
-    <img src="AGHS.jpg" alt="Event School Logo" />
+  <section id="events">
+    <h2 class="section-title">Events <img src="AGHS.jpg" alt="AGHS Logo" /></h2>
+    <p>Our upcoming event is the Career Expo happening at Phezulu High School on 25 April 2025.</p>
   </section>
 
-  <!-- Documents Section -->
   <section id="documents">
-    <h2>Important Documents</h2>
+    <h2 class="section-title">Documents</h2>
     <ul>
-      <li>Code of Conduct and Ethics</li>
-      <li>PAIPA and POPIA Compliance</li>
+      <li>Code of Conduct</li>
+      <li>PAIA & POPIA Policy</li>
       <li>Complaint Handling Procedure</li>
     </ul>
   </section>
 
-  <!-- Donate Section -->
   <section id="donate">
-    <h2>Support Our Cause</h2>
-    <p>Help us reach more learners by donating or volunteering today.</p>
+    <h2 class="section-title">Donate</h2>
+    <p>You can support our cause by donating items like sanitary pads, deodorants, food parcels, or monetary contributions.</p>
   </section>
+
+  <!-- Support Chat Button -->
+  <button id="supportChatBtn" onclick="Tawk_API?.maximize()">Support Chat</button>
 
   <!-- Tawk.to Script -->
   <script type="text/javascript">
-    var Tawk_API = Tawk_API || {};
-    var Tawk_LoadStart = new Date();
-    (function(){
-      var s1 = document.createElement("script");
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
       s1.async = true;
-      s1.src = 'https://embed.tawk.to/your_tawk_id_here/1xyz';
+      s1.src = 'https://embed.tawk.to/your_tawk_id/1'; // Replace 'your_tawk_id' with your actual Tawk.to ID
       s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin','*');
-      var s0 = document.getElementsByTagName('script')[0];
+      s1.setAttribute('crossorigin', '*');
       s0.parentNode.insertBefore(s1, s0);
     })();
+  </script>
 
-    function toggleTawk() {
-      if (Tawk_API) {
-        Tawk_API.toggle();
+  <!-- Countdown Script -->
+  <script>
+    function updateCountdown() {
+      const launchDate = new Date("2025-08-06T00:00:00Z");
+      const now = new Date();
+      const diff = launchDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown-timer").textContent = "🎉 We're Live!";
+        return;
       }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("countdown-timer").textContent =
+        `Launching In: ${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
+
+    setInterval(updateCountdown, 1000);
+    window.addEventListener('load', updateCountdown);
   </script>
 
 </body>
