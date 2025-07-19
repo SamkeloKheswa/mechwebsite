@@ -5,77 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Make Every Child Happy - MECH</title>
   <style>
+    /* Reset and basics */
     body {
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background-color: #fff6ef;
       color: #1c1c1c;
-      /* We will add padding after curtains reveal */
-      padding-top: 0;
-      overflow-x: hidden;
+      overflow-x: hidden; /* prevent horizontal scroll on curtain animation */
     }
 
-    /* Curtain container */
+    /* Curtain container fills entire screen and overlays content */
     #curtain-container {
       position: fixed;
       top: 0; left: 0;
       width: 100vw;
-      height: 70px;
+      height: 100vh;
       background: transparent;
       z-index: 100001;
       overflow: hidden;
+      user-select: none;
+      pointer-events: all; /* block interaction while curtains show */
       display: flex;
       justify-content: center;
       align-items: center;
-      user-select: none;
-      pointer-events: none; /* curtains block interaction until removed */
     }
 
-    /* Curtain panels */
+    /* Curtain panels fill half screen each */
     .curtain {
       position: absolute;
       top: 0;
       width: 50vw;
-      height: 70px;
+      height: 100vh;
       background: linear-gradient(135deg, #b20000 0%, #ff0000 100%);
-      box-shadow: inset 0 0 10px #800000;
+      box-shadow: inset 0 0 20px #800000;
       z-index: 100002;
       transition: transform 3s ease;
     }
 
     #curtain-left {
       left: 0;
-      border-bottom-right-radius: 15px;
+      border-bottom-right-radius: 30px;
+      border-top-right-radius: 30px;
       transform-origin: left center;
       transform: translateX(0);
     }
 
     #curtain-right {
       right: 0;
-      border-bottom-left-radius: 15px;
+      border-bottom-left-radius: 30px;
+      border-top-left-radius: 30px;
       transform-origin: right center;
       transform: translateX(0);
     }
 
-    /* The message behind curtains */
+    /* Launch message centered on screen behind curtains */
     #launch-message {
       position: relative;
       color: white;
       font-weight: 900;
-      font-size: 1.5rem;
+      font-size: 2rem;
       text-align: center;
       z-index: 100000;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       user-select: none;
       pointer-events: none;
       width: 100%;
       max-width: 100vw;
       background: linear-gradient(90deg, orange, red, gold);
-      padding: 15px 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      padding: 20px 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      border-radius: 10px;
     }
 
-    /* After animation: curtains slide fully out */
+    /* Curtains slide fully offscreen on toggle */
     .slide-left {
       transform: translateX(-100%);
     }
@@ -84,7 +86,13 @@
       transform: translateX(100%);
     }
 
-    /* Other styles from your site */
+    /* Hide curtain container after animation */
+    #curtain-container.hidden {
+      display: none;
+      pointer-events: none;
+    }
+
+    /* Other site styles */
     header {
       background: linear-gradient(45deg, orange, red, gold, black);
       color: white;
@@ -206,7 +214,7 @@
 </head>
 <body>
 
-  <!-- Curtain Launch Banner -->
+  <!-- Curtain Launch Banner covering full screen -->
   <div id="curtain-container">
     <div id="curtain-left" class="curtain"></div>
     <div id="launch-message">🎉 Website Launching on 6 Aug 2025! Stay Tuned! 🎉</div>
@@ -314,4 +322,66 @@
     <p>Registered NPC No: 2025/464075/08</p>
   </footer>
 
-  <!-- T
+  <!-- Tawk.to Chat Widget -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/65f05b879131ed19d972df98/1hpvscmc5';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+
+  <!-- Section Switch Script -->
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+    }
+  </script>
+
+  <!-- Floating Support Chat Button -->
+  <button id="support-chat-btn" onclick="toggleTawkChat()">Support Chat</button>
+
+  <script>
+    let chatIsOpen = false;
+
+    function toggleTawkChat() {
+      if (window.Tawk_API && typeof window.Tawk_API.maximize === "function" && typeof window.Tawk_API.minimize === "function") {
+        if (!chatIsOpen) {
+          Tawk_API.maximize();
+          chatIsOpen = true;
+        } else {
+          Tawk_API.minimize();
+          chatIsOpen = false;
+        }
+      } else {
+        alert("Chat is not ready yet. Please try again shortly.");
+      }
+    }
+
+    // Curtain animation to open curtains and then hide curtain container
+    window.addEventListener('load', () => {
+      const leftCurtain = document.getElementById('curtain-left');
+      const rightCurtain = document.getElementById('curtain-right');
+      const curtainContainer = document.getElementById('curtain-container');
+
+      // Start animation after 0.5s
+      setTimeout(() => {
+        leftCurtain.classList.add('slide-left');
+        rightCurtain.classList.add('slide-right');
+      }, 500);
+
+      // Remove curtain container after animation complete (3s)
+      setTimeout(() => {
+        curtainContainer.classList.add('hidden');
+      }, 3500);
+    });
+  </script>
+
+</body>
+</html>
