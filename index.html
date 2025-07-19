@@ -1,176 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Make Every Child Happy NPC</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
+      margin: 0;
+      padding: 0;
+      background: #f7f9fc;
+      color: #222;
     }
 
     header {
-      background-color: #1e88e5;
+      background-color: #004e89;
       color: white;
-      padding: 20px;
+      padding: 1em;
       text-align: center;
     }
 
     header img {
-      max-height: 80px;
+      width: 80px;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px;
     }
 
     nav {
-      background-color: #1565c0;
-      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      background-color: #0061a8;
     }
 
     nav a {
-      float: left;
-      display: block;
       color: white;
-      text-align: center;
       padding: 14px 20px;
       text-decoration: none;
-      font-weight: bold;
+      display: inline-block;
     }
 
     nav a:hover {
-      background-color: #0d47a1;
+      background-color: #005187;
     }
 
     section {
-      padding: 40px 20px;
       display: none;
+      padding: 2em;
     }
 
     section.active {
       display: block;
     }
 
-    .section-title {
-      font-size: 32px;
-      color: #1e88e5;
-      margin-bottom: 20px;
-      text-transform: uppercase;
+    h2 {
+      color: #004e89;
     }
 
-    .leadership h3 {
-      font-size: 24px;
-      color: #0d47a1;
-    }
-
-    .donate-button {
-      background-color: #4caf50;
-      color: white;
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .donate-button:hover {
-      background-color: #388e3c;
+    .team h3 {
+      font-size: 1.5em;
+      margin-top: 1em;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
-      background-color: #eee;
-      margin-top: 40px;
+      padding: 1em;
+      background-color: #e9eef4;
+      margin-top: 2em;
+      font-size: 0.9em;
+    }
+
+    .highlight {
+      color: #cc0000;
+      font-weight: bold;
     }
   </style>
-  <script>
-    function showSection(id) {
-      const sections = document.querySelectorAll("section");
-      sections.forEach(sec => sec.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
-    }
-
-    window.onload = () => showSection('home');
-  </script>
 </head>
 <body>
+  <header>
+    <img src="newlogo.jpg" alt="Make Every Child Happy Logo" />
+    <h1>Make Every Child Happy NPC</h1>
+    <p class="highlight">Inspiring Hope, Empowering Youth</p>
+  </header>
 
-<header>
-  <img src="newlogo.jpg" alt="MECH Logo">
-  <h1>Make Every Child Happy NPC</h1>
-</header>
+  <nav>
+    <a href="#" onclick="showSection('home')">Home</a>
+    <a href="#" onclick="showSection('about')">About</a>
+    <a href="#" onclick="showSection('team')">Leadership</a>
+    <a href="#" onclick="showSection('donate')">Donate</a>
+    <a href="#" onclick="showSection('documents')">Documents</a>
+    <a href="#" onclick="showSection('events')">Events</a>
+    <a href="#" onclick="showSection('blog')">Blog</a>
+    <a href="#" onclick="showSection('contact')">Contact</a>
+  </nav>
 
-<nav>
-  <a href="#" onclick="showSection('home')">Home</a>
-  <a href="#" onclick="showSection('about')">About</a>
-  <a href="#" onclick="showSection('leadership')">Leadership</a>
-  <a href="#" onclick="showSection('donate')">Donate</a>
-  <a href="#" onclick="showSection('documents')">Documents</a>
-  <a href="#" onclick="showSection('events')">Events</a>
-  <a href="#" onclick="showSection('blog')">Blog</a>
-  <a href="#" onclick="showSection('contact')">Contact</a>
-</nav>
+  <section id="home" class="active">
+    <h2>Welcome</h2>
+    <p>We are a non-profit committed to supporting learners from underprivileged communities with basic necessities, educational guidance, and community support. Join us in building a brighter future for every child.</p>
+  </section>
 
-<section id="home" class="active">
-  <h2 class="section-title">Welcome</h2>
-  <p>We are a non-profit company dedicated to supporting disadvantaged learners across South Africa with personal care items, education support, and community projects.</p>
-</section>
+  <section id="about">
+    <h2>About Us</h2>
+    <p><strong>Make Every Child Happy NPC</strong> is founded by passionate students and community leaders committed to social impact and educational development. We operate in KwaZulu-Natal and serve schools across multiple townships.</p>
 
-<section id="about">
-  <h2 class="section-title">About Us</h2>
-  <p>The Make Every Child Happy (MECH) Organization was established to bring relief, hope, and dignity to children from underprivileged backgrounds.</p>
+    <h3>Message from the Board of Directors</h3>
+    <p>At Make Every Child Happy, we believe that every child, regardless of background, deserves access to opportunities and care. From the start, our vision has been to be more than just an organization — but a movement of hope, upliftment, and transformation.</p>
+    <p>Our board is composed of passionate youth and experienced community builders who understand the challenges faced by learners in townships and rural areas. Through volunteerism, transparent governance, and community partnerships, we are bridging the gap between potential and access.</p>
+    <p>As we expand, our commitment to dignity, accountability, and results remains stronger than ever. We thank every donor, partner, and volunteer who walks this journey with us. Together, we truly can Make Every Child Happy.</p>
+  </section>
 
-  <h3>Message from the Board of Directors</h3>
-  <p>“We believe every child deserves a happy, safe, and supportive environment to grow. Through collective effort, we can bridge the gap and bring resources directly to those who need them the most.”</p>
-</section>
+  <section id="team" class="team">
+    <h2>Leadership</h2>
+    <h3>CEO: Mr TST Kheswa</h3>
+    <p>Founder and visionary leader driving strategic direction and partnerships.</p>
+    <h3>COO: Miss SA Khweswa</h3>
+    <p>Oversees day-to-day operations and ensures all departments align with our goals.</p>
+    <h3>CFO: Mr S. Biyela</h3>
+    <p>Manages financial planning, reporting, and compliance.</p>
+    <h3>PA to CEO: Miss A. Jali</h3>
+    <p>Supports executive coordination and external communication.</p>
+    <h3>Deputy Treasurer: Miss Sigaga</h3>
+    <p>Supports budgeting, resource tracking, and treasury reports.</p>
+  </section>
 
-<section id="leadership" class="leadership">
-  <h2 class="section-title">Our Leadership</h2>
-  <h3>CEO: Mr. T.S.T. Kheswa</h3>
-  <h3>Chief Operations Officer: Miss S.A. Bhengu</h3>
-  <h3>Chief Financial Officer: Mr. S. Biyela</h3>
-  <h3>PA to CEO: Miss Abulele Jali</h3>
-</section>
+  <section id="donate">
+    <h2>Support Us</h2>
+    <p>Your contribution helps us deliver essential support to students. You can donate safely via our Ozow platform.</p>
+    <p><a href="https://secure.ozow.com/MakEveryChildHappy" target="_blank">Click here to Donate via Ozow</a></p>
+  </section>
 
-<section id="donate">
-  <h2 class="section-title">Support Our Cause</h2>
-  <p>Click below to donate securely via Ozow and help make a difference.</p>
-  <a href="https://payments.ozow.com/Makemakeeverychildhappyorgnpc" target="_blank">
-    <button class="donate-button">Donate with Ozow</button>
-  </a>
-</section>
+  <section id="documents">
+    <h2>Organizational Documents</h2>
+    <ul>
+      <li><a href="documents/registration.pdf" target="_blank">📄 Registration Certificate</a></li>
+      <li><a href="documents/notices.pdf" target="_blank">📢 Official Notices</a></li>
+      <li><a href="documents/publications.pdf" target="_blank">📚 Publications</a></li>
+      <li><a href="documents/formc_paipa.pdf" target="_blank">📝 PAIPA Form C</a></li>
+      <li><a href="documents/annual_report.pdf" target="_blank">📈 Annual Reports</a></li>
+    </ul>
+  </section>
 
-<section id="documents">
-  <h2 class="section-title">Documents</h2>
-  <ul>
-    <li><a href="publications.pdf" target="_blank">Publications</a></li>
-    <li><a href="notices.pdf" target="_blank">Notices</a></li>
-    <li><a href="registration_document.pdf" target="_blank">Registration Document</a></li>
-    <li><a href="form_c_paipa.pdf" target="_blank">Form C - PAIPA Request</a></li>
-    <li><a href="annual_reports.pdf" target="_blank">Annual Reports</a></li>
-  </ul>
-</section>
+  <section id="events">
+    <h2>Upcoming Events</h2>
+    <p>🎉 <strong>Launch Day Coming Soon!</strong> We're preparing to officially launch our initiative with stakeholders, community leaders, and learners. Details will be announced on our blog and social media.</p>
+  </section>
 
-<section id="events">
-  <h2 class="section-title">Upcoming Events</h2>
-  <p>🎉 Launch Event: Make Every Child Happy NPC is hosting its official launch soon. Stay tuned for details on the venue, date, and special guests.</p>
-</section>
+  <section id="blog">
+    <h2>News & Blog</h2>
+    <p>Stay updated with our latest activities, school visits, donation drives, and progress stories. Our official blog will go live in the coming weeks.</p>
+  </section>
 
-<section id="blog">
-  <h2 class="section-title">News & Blog</h2>
-  <p>Latest updates, project highlights, and community stories will be posted here.</p>
-</section>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>📍 B 1312 Msolwa Road, Mpumalanga Township, Hammarsdale, 3699<br/>
+       📧 Email: <a href="mailto:Marketing.MECH2025@outlook.com">Marketing.MECH2025@outlook.com</a><br/>
+       📞 Phone: 067 022 6846</p>
+  </section>
 
-<section id="contact">
-  <h2 class="section-title">Contact Us</h2>
-  <p>Email: <a href="mailto:Marketing.MECH2025@outlook.com">Marketing.MECH2025@outlook.com</a></p>
-  <p>Phone: 067 022 6846</p>
-  <p>Address: B1312 Msolwa Road, Mpumalanga Township, Hammarsdale, 3699</p>
-</section>
+  <footer>
+    &copy; 2025 Make Every Child Happy NPC. All rights reserved.
+  </footer>
 
-<footer>
-  &copy; 2025 Make Every Child Happy NPC. All rights reserved.
-</footer>
-
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 </body>
 </html>
