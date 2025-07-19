@@ -3,205 +3,230 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MECH Official Site</title>
+  <title>Make Every Child Happy - MECH</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: Arial, sans-serif;
-      background-color: #fff5f0;
-      color: #333;
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff6ef;
+      color: #1c1c1c;
     }
 
     header {
-      background: linear-gradient(to right, orange, red, gold, black);
-      padding: 15px;
+      background: linear-gradient(45deg, orange, red, gold, black);
+      color: white;
+      padding: 20px;
       text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
     }
 
-    header nav a {
-      margin: 0 15px;
+    header img {
+      width: 180px;
+      margin-bottom: 10px;
+    }
+
+    nav {
+      background: black;
+      overflow: hidden;
+    }
+
+    nav a {
+      float: left;
+      display: block;
+      color: gold;
+      text-align: center;
+      padding: 14px 20px;
       text-decoration: none;
-      color: #fff;
       font-weight: bold;
     }
 
-    section {
-      padding: 30px;
-      display: none;
+    nav a:hover {
+      background-color: orange;
+      color: white;
     }
 
-    section.active {
+    .section {
+      display: none;
+      padding: 40px;
+    }
+
+    .active {
       display: block;
     }
 
-    /* Event Logo */
-    .event-logo {
-      width: 80px;
-      height: auto;
-      vertical-align: middle;
-      margin-right: 10px;
-    }
-
-    /* Tawk.to Chat Floating Button */
-    #support-chat {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #333;
-      color: #fff;
-      padding: 12px 18px;
-      border-radius: 30px;
-      cursor: pointer;
-      z-index: 1001;
-      font-weight: bold;
-    }
-
-    /* Curtain Launch */
-    #curtain-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('curtains.jpg') no-repeat center center;
-      background-size: cover;
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      animation: curtainOpen 4s ease-in-out forwards;
-    }
-
-    #launch-message {
-      background: rgba(0, 0, 0, 0.7);
-      color: #fff;
+    .leadership-card {
+      background-color: #fff;
+      color: #000;
       padding: 20px;
-      border-radius: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+
+    footer {
+      background: #1c1c1c;
+      color: white;
       text-align: center;
+      padding: 30px;
     }
 
-    @keyframes curtainOpen {
-      0% { opacity: 1; }
-      95% { opacity: 1; }
-      100% { opacity: 0; display: none; }
+    .event-box {
+      background: #ffe4b5;
+      padding: 20px;
+      border-left: 6px solid orange;
+      margin-bottom: 20px;
+      border-radius: 8px;
     }
 
-    /* Countdown Styles */
-    #countdown-timer {
-      font-size: 1.4rem;
+    .document-list li {
       margin: 10px 0;
     }
+
+    .ozow-box {
+      background: #fff;
+      padding: 30px;
+      border: 2px dashed #ff4500;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    h2 {
+      color: darkred;
+    }
+
+    button {
+      background-color: red;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: darkred;
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- Curtain Countdown -->
-  <div id="curtain-container">
-    <div id="launch-message">
-      <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
-        <img src="celeb.jpg" width="284" height="184" alt="Celebration" />
-        <div id="countdown-timer">Loading countdown...</div>
-        <img src="celeb.jpg" width="284" height="184" alt="Celebration" />
-      </div>
+  <header>
+    <img src="newlogo.png" alt="MECH Logo" />
+    <h1>Make Every Child Happy (MECH)</h1>
+    <p>Youth-Led. Purpose-Driven. Change-Oriented.</p>
+  </header>
+
+  <nav>
+    <a href="#" onclick="showSection('home')">Home</a>
+    <a href="#" onclick="showSection('about')">About</a>
+    <a href="#" onclick="showSection('leadership')">Leadership</a>
+    <a href="#" onclick="showSection('events')">Events</a>
+    <a href="#" onclick="showSection('documents')">Documents</a>
+    <a href="#" onclick="showSection('donate')">Donate</a>
+    <a href="#" onclick="showSection('contact')">Contact</a>
+  </nav>
+
+  <div id="home" class="section active">
+    <h2>Welcome to MECH</h2>
+    <p>
+      Greetings and a warm welcome to Make Every Child Happy (MECH) — a youth-led, purpose-driven nonprofit committed to transforming the lives of learners across South Africa.
+    </p>
+    <p>
+      Founded on the belief that every child deserves dignity, support, and opportunity, MECH stands as a beacon of hope for learners from underprivileged communities. Our work is rooted in compassion, community, and a clear vision: to create an environment where children can learn, grow, and dream — without barriers.
+    </p>
+    <p>
+      We work tirelessly to ensure that no child is left behind due to lack of basic necessities. Through our initiatives, including the provision of sanitary pads, toiletries, food parcels, and career guidance expos, we aim to address the real challenges faced by students in rural and township schools.
+    </p>
+    <p>
+      Together with our volunteers, partners, and supporters, we are building a future where learners are empowered, supported, and truly happy.
+    </p>
+  </div>
+
+  <div id="about" class="section">
+    <h2>About MECH</h2>
+    <p>
+      Make Every Child Happy (MECH) is a registered youth-led nonprofit committed to serving the educational and welfare needs of disadvantaged learners in South Africa. Our primary goal is to eliminate barriers to education through targeted programs, donations, and community engagement.
+    </p>
+    <p>
+      From our board of directors:<br><br>
+      "We believe that dignity and education are basic rights of every learner. MECH is not just an organization, it's a movement towards justice, equity, and hope. Our vision is long-term, and we will continue to act with integrity, compassion, and courage in every step of our journey."
+    </p>
+  </div>
+
+  <div id="leadership" class="section">
+    <h2>Leadership</h2>
+    <div class="leadership-card">
+      <h3>Mr. TST Kheswa - Chief Executive Officer (CEO)</h3>
+      <p>Visionary leader and founder of MECH, committed to driving sustainable youth development across communities.</p>
+    </div>
+    <div class="leadership-card">
+      <h3>Miss SA Bhengu - Chief Operations Officer (COO)</h3>
+      <p>Passionate about grassroots impact and program implementation to reach every child in need.</p>
+    </div>
+    <div class="leadership-card">
+      <h3>Mr. S Biyela - Chief Financial Officer (CFO)</h3>
+      <p>Manages transparency and accountability for all MECH financial activities.</p>
     </div>
   </div>
 
-  <!-- Header with Navigation -->
-  <header>
-    <nav>
-      <a href="#" onclick="showSection('about')">About</a>
-      <a href="#" onclick="showSection('leadership')">Leadership</a>
-      <a href="#" onclick="showSection('events')">Events</a>
-      <a href="#" onclick="showSection('documents')">Documents</a>
-      <a href="#" onclick="showSection('donate')">Donate</a>
-    </nav>
-  </header>
+  <div id="events" class="section">
+    <h2>Events</h2>
+    <div class="event-box">
+      <h3>ALBINI GIRLS HIGH SCHOOL RESEARCH SCHOOL VISIT</h3>
+      <p><strong>Date:</strong> 12 February 2026</p>
+      <p><strong>Time:</strong> 09:00 - 13:00</p>
+    </div>
+  </div>
 
-  <!-- Sections -->
-  <section id="about" class="active">
-    <h2>About MECH</h2>
-    <p>Make Every Child Happy (MECH) is a youth-led NPC dedicated to supporting learners with essentials such as sanitary pads, food parcels, and career guidance.</p>
-  </section>
-
-  <section id="leadership">
-    <h2>Leadership</h2>
-    <p>Our leadership team includes Mr. TST Kheswa (CEO), Miss SA Bhengu (Secretary), Miss P. Ndlovu (COO), and other dedicated student volunteers.</p>
-  </section>
-
-  <section id="events">
-    <h2><img src="AGHS.jpg" class="event-logo" alt="AGHS Logo" /> Events</h2>
-    <p>Our recent event was the Career Expo hosted in partnership with local schools and institutions.</p>
-  </section>
-
-  <section id="documents">
+  <div id="documents" class="section">
     <h2>Documents</h2>
-    <p>Access key policies, ethics documents, and compliance material here.</p>
-  </section>
+    <ul class="document-list">
+      <li><a href="#">Publications</a></li>
+      <li><a href="#">Notices</a></li>
+      <li><a href="#">Registration Document</a></li>
+      <li><a href="#">Form C - PAIPA Request</a></li>
+      <li><a href="#">Annual Reports</a></li>
+    </ul>
+  </div>
 
-  <section id="donate">
-    <h2>Donate</h2>
-    <p>Support our cause by contributing financial aid or essential goods for learners in need.</p>
-  </section>
+  <div id="donate" class="section">
+    <h2>Donate via Ozow</h2>
+    <div class="ozow-box">
+      <p>Support our cause securely through Ozow</p>
+      <button onclick="window.open('https://secure.ozow.com/...', '_blank')">Donate Now</button>
+    </div>
+  </div>
 
-  <!-- Floating Support Chat Button -->
-  <div id="support-chat" onclick="startTawk()">Support Chat</div>
+  <div id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:Founder.MECH@outlook.com">Founder.MECH@outlook.com</a></p>
+    <p>Phone: 067 022 6846 / 087 265 4898</p>
+  </div>
 
-  <!-- Countdown Script -->
-  <script>
-    function updateCountdown() {
-      const launchDate = new Date("2025-08-06T00:00:00+0200");
-      const now = new Date();
-      const diff = launchDate - now;
+  <footer>
+    <p>&copy; 2025 Make Every Child Happy (MECH) | All Rights Reserved</p>
+    <p>Registered NPC No: 2025/464075/08</p>
+  </footer>
 
-      if (diff <= 0) {
-        document.getElementById("countdown-timer").textContent = "🎉 We're Live!";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      document.getElementById("countdown-timer").textContent =
-        `Launching In: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    setInterval(updateCountdown, 1000);
-    window.addEventListener('load', updateCountdown);
+  <!-- Tawk.to Chat Widget -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/65f05b879131ed19d972df98/1hpvscmc5';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
   </script>
 
-  <!-- Toggle Sections Script -->
+  <!-- Section Switch Script -->
   <script>
     function showSection(sectionId) {
-      document.querySelectorAll("section").forEach(sec => {
-        sec.classList.remove("active");
-      });
-      document.getElementById(sectionId).classList.add("active");
-    }
-  </script>
-
-  <!-- Tawk.to Script -->
-  <script type="text/javascript">
-    function startTawk() {
-      var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-      (function () {
-        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/your_property_id/default';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-      })();
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
     }
   </script>
 
