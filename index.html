@@ -10,6 +10,7 @@
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background-color: #fff6ef;
       color: #1c1c1c;
+      padding-top: 60px; /* space for launch banner */
     }
 
     header {
@@ -129,12 +130,35 @@
     #support-chat-btn:hover {
       background-color: #cc3700;
     }
+
+    /* Launch Banner */
+    .launch-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(90deg, orange, red, gold);
+      color: white;
+      font-weight: 900;
+      font-size: 1.5rem;
+      text-align: center;
+      padding: 15px 0;
+      z-index: 100000;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      letter-spacing: 2px;
+      user-select: none;
+    }
   </style>
 </head>
 <body>
 
+  <div class="launch-banner">
+    🎉 Website Launching on 6 Aug 2025! Stay Tuned! 🎉
+  </div>
+
   <header>
-    <img src="newlogo.png" alt="MECH Logo" />
+    <img src="newlogo.jpg" alt="MECH Logo" />
     <h1>Make Every Child Happy (MECH)</h1>
     <p>Youth-Led. Purpose-Driven. Change-Oriented.</p>
   </header>
@@ -260,9 +284,17 @@
   <button id="support-chat-btn" onclick="toggleTawkChat()">Support Chat</button>
 
   <script>
+    let chatIsOpen = false;
+
     function toggleTawkChat() {
-      if (window.Tawk_API && typeof window.Tawk_API.toggle === "function") {
-        window.Tawk_API.toggle(); // toggles the chat widget open/close
+      if (window.Tawk_API && typeof window.Tawk_API.maximize === "function" && typeof window.Tawk_API.minimize === "function") {
+        if (!chatIsOpen) {
+          Tawk_API.maximize();
+          chatIsOpen = true;
+        } else {
+          Tawk_API.minimize();
+          chatIsOpen = false;
+        }
       } else {
         alert("Chat is not ready yet. Please try again shortly.");
       }
