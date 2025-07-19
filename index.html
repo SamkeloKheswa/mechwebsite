@@ -3,195 +3,198 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Make Every Child Happy</title>
+  <title>Make Every Child Happy - MECH</title>
   <style>
-    body {
+    body, html {
       margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
-      background: #fff;
+      scroll-behavior: smooth;
     }
 
     header {
-      background: linear-gradient(to right, orange, black, red, gold);
-      padding: 10px;
-      text-align: center;
+      background-color: black;
       color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
     }
 
     nav {
+      background-color: red;
       display: flex;
       justify-content: center;
       gap: 20px;
-      background-color: #000;
       padding: 10px;
+      font-weight: bold;
     }
 
     nav a {
-      color: white;
+      color: gold;
       text-decoration: none;
-      font-weight: bold;
+      font-size: 1.1em;
     }
 
     section {
-      padding: 20px;
+      padding: 40px;
+      background-color: #f9f9f9;
     }
 
-    .section-title {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      border-left: 5px solid gold;
-      padding-left: 10px;
-      color: darkred;
+    #leadership, #events, #documents, #donate {
+      background-color: #fff4e6;
     }
 
     #events img {
-      height: 60px;
-      vertical-align: middle;
-      margin-left: 10px;
+      display: block;
+      margin-top: 10px;
+      max-width: 150px;
     }
 
-    /* Floating Chat Button */
-    #supportChatBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: crimson;
+    /* Ribbon */
+    .ribbon {
+      background: crimson;
       color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      z-index: 1001;
+      text-align: center;
+      padding: 10px;
+      font-size: 1.2em;
       font-weight: bold;
     }
 
-    /* Curtain Styles */
+    /* Curtain */
     #curtain-container {
       position: fixed;
       top: 0;
       left: 0;
-      height: 100vh;
-      width: 100vw;
-      background: linear-gradient(to right, darkred 50%, darkred 50%);
-      background-size: 200% 100%;
-      background-position: left;
-      z-index: 2000;
-      animation: openCurtain 3s ease forwards;
+      width: 100%;
+      height: 100%;
+      background: black;
+      z-index: 9999;
       display: flex;
-      align-items: center;
       justify-content: center;
-      flex-direction: column;
+      align-items: center;
       overflow: hidden;
     }
 
-    @keyframes openCurtain {
-      0% {
-        background-position: left;
-      }
-      100% {
-        background-position: right;
-        opacity: 0;
-        visibility: hidden;
-      }
+    .curtain {
+      width: 50%;
+      height: 100%;
+      background-image: url('curtains.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      transition: transform 2s ease-in-out;
+      position: absolute;
+      top: 0;
+    }
+
+    #curtain-left {
+      left: 0;
+      transform: translateX(0);
+    }
+
+    #curtain-right {
+      right: 0;
+      transform: translateX(0);
     }
 
     #launch-message {
-      text-align: center;
       color: white;
-      z-index: 2001;
+      z-index: 2;
+      text-align: center;
+      font-size: 1.5em;
     }
 
-    #launch-message img {
-      max-width: 284px;
-      height: 184px;
+    .open-left {
+      transform: translateX(-100%);
     }
 
-    #countdown-timer {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #fff;
+    .open-right {
+      transform: translateX(100%);
     }
-
   </style>
 </head>
 <body>
+  <!-- Ribbon -->
+  <div class="ribbon">🎉 Website Launching on 6 Aug 2025 🎉</div>
 
-  <!-- Curtain with Countdown -->
+  <!-- Curtain Launch Cover -->
   <div id="curtain-container">
+    <div id="curtain-left" class="curtain"></div>
+    <div id="curtain-right" class="curtain"></div>
     <div id="launch-message">
       <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
         <img src="celeb.jpg" width="284" height="184" alt="Celebration" />
-        <div id="countdown-timer">Launching Soon...</div>
+        <div id="countdown-timer" style="font-size: 1.3rem; color: #fff; max-width: 240px;"></div>
         <img src="celeb.jpg" width="284" height="184" alt="Celebration" />
       </div>
     </div>
   </div>
 
-  <header>
-    <h1>Make Every Child Happy</h1>
-  </header>
-
+  <!-- Header and Navigation -->
+  <header>Make Every Child Happy (MECH)</header>
   <nav>
-    <a href="#about">About</a>
-    <a href="#leadership">Leadership</a>
-    <a href="#events">Events</a>
-    <a href="#documents">Documents</a>
-    <a href="#donate">Donate</a>
+    <a href="about.html" target="_self">About</a>
+    <a href="leadership.html" target="_self">Leadership</a>
+    <a href="events.html" target="_self">Events</a>
+    <a href="documents.html" target="_self">Documents</a>
+    <a href="donate.html" target="_self">Donate</a>
   </nav>
 
+  <!-- Sections -->
   <section id="about">
-    <h2 class="section-title">About Us</h2>
-    <p>We are committed to empowering youth and supporting their future through career guidance, donations, and meaningful outreach.</p>
+    <h2>About Us</h2>
+    <p>We are a passionate team dedicated to uplifting children through education, care, and support.</p>
   </section>
 
   <section id="leadership">
-    <h2 class="section-title">Leadership</h2>
-    <ul>
-      <li><strong>Mr TST Kheswa</strong> – CEO</li>
-      <li><strong>Miss SA Bhengu</strong> – Secretary</li>
-      <li><strong>Miss Phindile Ndlovu</strong> – COO</li>
-    </ul>
+    <h2>Leadership</h2>
+    <p>Meet the dedicated team leading MECH toward impactful change in communities.</p>
   </section>
 
   <section id="events">
-    <h2 class="section-title">Events <img src="AGHS.jpg" alt="AGHS Logo" /></h2>
-    <p>Our upcoming event is the Career Expo happening at Phezulu High School on 25 April 2025.</p>
+    <h2>Events</h2>
+    <p>Stay updated on our events, outreach programs, and exciting opportunities.</p>
+    <img src="AGHS.jpg" alt="AGHS Logo" />
   </section>
 
   <section id="documents">
-    <h2 class="section-title">Documents</h2>
-    <ul>
-      <li>Code of Conduct</li>
-      <li>PAIA & POPIA Policy</li>
-      <li>Complaint Handling Procedure</li>
-    </ul>
+    <h2>Documents</h2>
+    <p>Access our official documents, policies, and organizational records.</p>
   </section>
 
   <section id="donate">
-    <h2 class="section-title">Donate</h2>
-    <p>You can support our cause by donating items like sanitary pads, deodorants, food parcels, or monetary contributions.</p>
+    <h2>Donate</h2>
+    <p>Your contributions help us make every child’s future brighter. Support our mission.</p>
   </section>
 
-  <!-- Support Chat Button -->
-  <button id="supportChatBtn" onclick="Tawk_API?.maximize()">Support Chat</button>
-
-  <!-- Tawk.to Script -->
+  <!-- Tawk.to Support Chat -->
   <script type="text/javascript">
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     (function () {
       var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
       s1.async = true;
-      s1.src = 'https://embed.tawk.to/your_tawk_id/1'; // Replace 'your_tawk_id' with your actual Tawk.to ID
+      s1.src = 'https://embed.tawk.to/your_widget_id_here/1hxxxxxxx'; // replace with your real widget ID
       s1.charset = 'UTF-8';
       s1.setAttribute('crossorigin', '*');
       s0.parentNode.insertBefore(s1, s0);
     })();
   </script>
 
-  <!-- Countdown Script -->
+  <!-- Curtain Open Script -->
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(() => {
+        document.getElementById('curtain-left').classList.add('open-left');
+        document.getElementById('curtain-right').classList.add('open-right');
+        document.getElementById('curtain-container').style.zIndex = '0';
+      }, 3000);
+    });
+  </script>
+
+  <!-- Countdown Timer Script -->
   <script>
     function updateCountdown() {
-      const launchDate = new Date("2025-08-06T00:00:00Z");
+      const launchDate = new Date("2025-08-06T00:00:00");
       const now = new Date();
       const diff = launchDate - now;
 
@@ -212,6 +215,5 @@
     setInterval(updateCountdown, 1000);
     window.addEventListener('load', updateCountdown);
   </script>
-
 </body>
 </html>
