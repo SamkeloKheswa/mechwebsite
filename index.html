@@ -2,199 +2,163 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Make Every Child Happy - MECH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MECH Official Site</title>
   <style>
-    body, html {
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: Arial, sans-serif;
-      scroll-behavior: smooth;
+      background-color: #fff5f0;
+      color: #333;
     }
 
     header {
-      background-color: black;
-      color: white;
+      background: linear-gradient(to right, orange, red, gold, black);
       padding: 15px;
       text-align: center;
-      font-size: 2em;
-      font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    nav {
-      background-color: red;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px;
-      font-weight: bold;
-    }
-
-    nav a {
-      color: gold;
+    header nav a {
+      margin: 0 15px;
       text-decoration: none;
-      font-size: 1.1em;
+      color: #fff;
+      font-weight: bold;
     }
 
     section {
-      padding: 40px;
-      background-color: #f9f9f9;
+      padding: 30px;
+      display: none;
     }
 
-    #leadership, #events, #documents, #donate {
-      background-color: #fff4e6;
-    }
-
-    #events img {
+    section.active {
       display: block;
-      margin-top: 10px;
-      max-width: 150px;
     }
 
-    /* Ribbon */
-    .ribbon {
-      background: crimson;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      font-size: 1.2em;
+    /* Event Logo */
+    .event-logo {
+      width: 80px;
+      height: auto;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    /* Tawk.to Chat Floating Button */
+    #support-chat {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #333;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      z-index: 1001;
       font-weight: bold;
     }
 
-    /* Curtain */
+    /* Curtain Launch */
     #curtain-container {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: black;
+      background: url('curtains.jpg') no-repeat center center;
+      background-size: cover;
       z-index: 9999;
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
-    }
-
-    .curtain {
-      width: 50%;
-      height: 100%;
-      background-image: url('curtains.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      transition: transform 2s ease-in-out;
-      position: absolute;
-      top: 0;
-    }
-
-    #curtain-left {
-      left: 0;
-      transform: translateX(0);
-    }
-
-    #curtain-right {
-      right: 0;
-      transform: translateX(0);
+      flex-direction: column;
+      animation: curtainOpen 4s ease-in-out forwards;
     }
 
     #launch-message {
-      color: white;
-      z-index: 2;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 20px;
+      border-radius: 15px;
       text-align: center;
-      font-size: 1.5em;
     }
 
-    .open-left {
-      transform: translateX(-100%);
+    @keyframes curtainOpen {
+      0% { opacity: 1; }
+      95% { opacity: 1; }
+      100% { opacity: 0; display: none; }
     }
 
-    .open-right {
-      transform: translateX(100%);
+    /* Countdown Styles */
+    #countdown-timer {
+      font-size: 1.4rem;
+      margin: 10px 0;
     }
   </style>
 </head>
 <body>
-  <!-- Ribbon -->
-  <div class="ribbon">🎉 Website Launching on 6 Aug 2025 🎉</div>
 
-  <!-- Curtain Launch Cover -->
+  <!-- Curtain Countdown -->
   <div id="curtain-container">
-    <div id="curtain-left" class="curtain"></div>
-    <div id="curtain-right" class="curtain"></div>
     <div id="launch-message">
       <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
         <img src="celeb.jpg" width="284" height="184" alt="Celebration" />
-        <div id="countdown-timer" style="font-size: 1.3rem; color: #fff; max-width: 240px;"></div>
+        <div id="countdown-timer">Loading countdown...</div>
         <img src="celeb.jpg" width="284" height="184" alt="Celebration" />
       </div>
     </div>
   </div>
 
-  <!-- Header and Navigation -->
-  <header>Make Every Child Happy (MECH)</header>
-  <nav>
-    <a href="about.html" target="_self">About</a>
-    <a href="leadership.html" target="_self">Leadership</a>
-    <a href="events.html" target="_self">Events</a>
-    <a href="documents.html" target="_self">Documents</a>
-    <a href="donate.html" target="_self">Donate</a>
-  </nav>
+  <!-- Header with Navigation -->
+  <header>
+    <nav>
+      <a href="#" onclick="showSection('about')">About</a>
+      <a href="#" onclick="showSection('leadership')">Leadership</a>
+      <a href="#" onclick="showSection('events')">Events</a>
+      <a href="#" onclick="showSection('documents')">Documents</a>
+      <a href="#" onclick="showSection('donate')">Donate</a>
+    </nav>
+  </header>
 
   <!-- Sections -->
-  <section id="about">
-    <h2>About Us</h2>
-    <p>We are a passionate team dedicated to uplifting children through education, care, and support.</p>
+  <section id="about" class="active">
+    <h2>About MECH</h2>
+    <p>Make Every Child Happy (MECH) is a youth-led NPC dedicated to supporting learners with essentials such as sanitary pads, food parcels, and career guidance.</p>
   </section>
 
   <section id="leadership">
     <h2>Leadership</h2>
-    <p>Meet the dedicated team leading MECH toward impactful change in communities.</p>
+    <p>Our leadership team includes Mr. TST Kheswa (CEO), Miss SA Bhengu (Secretary), Miss P. Ndlovu (COO), and other dedicated student volunteers.</p>
   </section>
 
   <section id="events">
-    <h2>Events</h2>
-    <p>Stay updated on our events, outreach programs, and exciting opportunities.</p>
-    <img src="AGHS.jpg" alt="AGHS Logo" />
+    <h2><img src="AGHS.jpg" class="event-logo" alt="AGHS Logo" /> Events</h2>
+    <p>Our recent event was the Career Expo hosted in partnership with local schools and institutions.</p>
   </section>
 
   <section id="documents">
     <h2>Documents</h2>
-    <p>Access our official documents, policies, and organizational records.</p>
+    <p>Access key policies, ethics documents, and compliance material here.</p>
   </section>
 
   <section id="donate">
     <h2>Donate</h2>
-    <p>Your contributions help us make every child’s future brighter. Support our mission.</p>
+    <p>Support our cause by contributing financial aid or essential goods for learners in need.</p>
   </section>
 
-  <!-- Tawk.to Support Chat -->
-  <script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = 'https://embed.tawk.to/your_widget_id_here/1hxxxxxxx'; // replace with your real widget ID
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin', '*');
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-  </script>
+  <!-- Floating Support Chat Button -->
+  <div id="support-chat" onclick="startTawk()">Support Chat</div>
 
-  <!-- Curtain Open Script -->
-  <script>
-    window.addEventListener('load', function () {
-      setTimeout(() => {
-        document.getElementById('curtain-left').classList.add('open-left');
-        document.getElementById('curtain-right').classList.add('open-right');
-        document.getElementById('curtain-container').style.zIndex = '0';
-      }, 3000);
-    });
-  </script>
-
-  <!-- Countdown Timer Script -->
+  <!-- Countdown Script -->
   <script>
     function updateCountdown() {
-      const launchDate = new Date("2025-08-06T00:00:00");
+      const launchDate = new Date("2025-08-06T00:00:00+0200");
       const now = new Date();
       const diff = launchDate - now;
 
@@ -215,5 +179,31 @@
     setInterval(updateCountdown, 1000);
     window.addEventListener('load', updateCountdown);
   </script>
+
+  <!-- Toggle Sections Script -->
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll("section").forEach(sec => {
+        sec.classList.remove("active");
+      });
+      document.getElementById(sectionId).classList.add("active");
+    }
+  </script>
+
+  <!-- Tawk.to Script -->
+  <script type="text/javascript">
+    function startTawk() {
+      var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/your_property_id/default';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    }
+  </script>
+
 </body>
 </html>
