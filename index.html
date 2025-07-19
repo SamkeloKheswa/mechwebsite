@@ -123,11 +123,33 @@
     <p>Supports budgeting, resource tracking, and treasury reports.</p>
   </section>
 
-  <section id="donate">
-    <h2>Support Us</h2>
-    <p>Your contribution helps us deliver essential support to students. You can donate safely via our Ozow platform.</p>
-    <p><a href="https://secure.ozow.com/MakEveryChildHappy" target="_blank">Click here to Donate via Ozow</a></p>
-  </section>
+  <section id="donate" style="padding: 40px; background-color: #f5f5f5;">
+  <h2 style="color: #00A99D; font-size: 28px;">Donate to Make Every Child Happy</h2>
+  <p>Your contribution helps us provide essential resources like sanitary pads, school supplies, and support for learners in need. Together, we can brighten futures and uplift communities.</p>
+  
+  <form method="POST" action="https://pay.ozow.com">
+    <!-- Replace these values as needed -->
+    <input type="hidden" name="SiteCode" value="MAK-MAK-034" />
+    <input type="hidden" name="CountryCode" value="ZA" />
+    <input type="hidden" name="CurrencyCode" value="ZAR" />
+    <input type="hidden" name="Amount" value="50.00" />
+    <input type="hidden" name="TransactionReference" value="MECH-Donation-001" />
+    <input type="hidden" name="BankReference" value="Donation MECH" />
+    <input type="hidden" name="Customer" value="Donor" />
+    <input type="hidden" name="EmailAddress" value="Founder.MECH@outlook.com" />
+    <input type="hidden" name="CancelUrl" value="https://mech.org.za/cancel" />
+    <input type="hidden" name="ErrorUrl" value="https://mech.org.za/error" />
+    <input type="hidden" name="SuccessUrl" value="https://mech.org.za/success" />
+    <input type="hidden" name="NotifyUrl" value="https://mech.org.za/notify" />
+
+    <button type="submit" style="margin-top: 15px; padding: 12px 25px; background-color: #00A99D; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
+      Donate via Ozow
+    </button>
+  </form>
+
+  <p style="margin-top: 10px; font-size: 14px;"><i>You will be securely redirected to Ozow to complete your donation.</i></p>
+</section>
+
 
   <section id="documents">
     <h2>Organizational Documents</h2>
