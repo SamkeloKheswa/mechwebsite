@@ -1,195 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Make Every Child Happy (MECH)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Make Every Child Happy - MECH</title>
   <style>
-    :root {
-      --orange: #ff8000;
-      --black: #000;
-      --red: #cc0000;
-      --gold: #d4af37;
-      --bg: #fef8f2;
-    }
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg);
-      color: #333;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff6ef;
+      color: #1c1c1c;
     }
+
+    header {
+      background: linear-gradient(45deg, orange, red, gold, black);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header img {
+      width: 180px;
+      margin-bottom: 10px;
+    }
+
     nav {
-      background-color: var(--black);
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 15px;
+      background: black;
+      overflow: hidden;
     }
+
     nav a {
-      color: var(--gold);
+      float: left;
+      display: block;
+      color: gold;
+      text-align: center;
+      padding: 14px 20px;
       text-decoration: none;
-      padding: 12px 20px;
-      margin: 5px;
-      border: 2px solid transparent;
-      border-radius: 5px;
+      font-weight: bold;
     }
+
     nav a:hover {
-      background-color: var(--gold);
-      color: var(--black);
+      background-color: orange;
+      color: white;
     }
-    section {
+
+    .section {
       display: none;
-      padding: 40px 20px;
+      padding: 40px;
     }
-    section.active {
+
+    .active {
       display: block;
     }
-    h2 {
-      color: var(--red);
-      font-size: 28px;
-      border-bottom: 3px solid var(--orange);
-      padding-bottom: 10px;
+
+    .leadership-card {
+      background-color: #fff;
+      color: #000;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
     }
 
-    .leadership {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 25px;
+    footer {
+      background: #1c1c1c;
+      color: white;
+      text-align: center;
+      padding: 30px;
     }
-    .leader {
-      flex: 1 1 250px;
-      background-color: #fff;
-      border-left: 5px solid var(--orange);
-      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+
+    .event-box {
+      background: #ffe4b5;
       padding: 20px;
+      border-left: 6px solid orange;
+      margin-bottom: 20px;
       border-radius: 8px;
     }
-    .leader h3 {
-      color: var(--black);
-      font-size: 20px;
-      margin-top: 0;
+
+    .document-list li {
+      margin: 10px 0;
     }
 
-    .event {
-      margin-bottom: 20px;
-      padding: 15px;
-      background-color: var(--orange);
-      color: #fff;
-      border-radius: 5px;
-    }
-
-    .footer {
-      background-color: var(--black);
-      color: #fff;
+    .ozow-box {
+      background: #fff;
+      padding: 30px;
+      border: 2px dashed #ff4500;
       text-align: center;
-      padding: 30px 10px;
-      font-size: 14px;
+      margin-top: 30px;
     }
+
+    h2 {
+      color: darkred;
+    }
+
+    button {
+      background-color: red;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: darkred;
+    }
+
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="#" onclick="showSection('about')">About</a>
-  <a href="#" onclick="showSection('leadership')">Leadership</a>
-  <a href="#" onclick="showSection('events')">Events</a>
-  <a href="#" onclick="showSection('documents')">Documents</a>
-  <a href="#" onclick="showSection('donate')">Donate</a>
-  <a href="#" onclick="showSection('contact')">Contact</a>
-</nav>
+  <header>
+    <img src="newlogo.png" alt="MECH Logo" />
+    <h1>Make Every Child Happy (MECH)</h1>
+    <p>Youth-Led. Purpose-Driven. Change-Oriented.</p>
+  </header>
 
-<!-- ABOUT -->
-<section id="about" class="active">
-  <h2>Welcome to MECH</h2>
-  <p>Greetings and a warm welcome to Make Every Child Happy (MECH) — a youth-led, purpose-driven nonprofit committed to transforming the lives of learners across South Africa.</p>
-  <p>Founded on the belief that every child deserves dignity, support, and opportunity, MECH stands as a beacon of hope for learners from underprivileged communities. Our work is rooted in compassion, community, and a clear vision: to create an environment where children can learn, grow, and dream — without barriers.</p>
-  <p>We work tirelessly to ensure that no child is left behind due to lack of basic necessities. Through our initiatives, including the provision of sanitary pads, toiletries, food parcels, and career guidance expos, we aim to address the real challenges faced by students in rural and township schools.</p>
-</section>
+  <nav>
+    <a href="#" onclick="showSection('home')">Home</a>
+    <a href="#" onclick="showSection('about')">About</a>
+    <a href="#" onclick="showSection('leadership')">Leadership</a>
+    <a href="#" onclick="showSection('events')">Events</a>
+    <a href="#" onclick="showSection('documents')">Documents</a>
+    <a href="#" onclick="showSection('donate')">Donate</a>
+    <a href="#" onclick="showSection('contact')">Contact</a>
+  </nav>
 
-<!-- LEADERSHIP -->
-<section id="leadership">
-  <h2>Leadership</h2>
-  <div class="leadership">
-    <div class="leader">
-      <h3>Mr. T.S.T. Kheswa</h3>
-      <p><strong>Chief Executive Officer (CEO)</strong></p>
+  <div id="home" class="section active">
+    <h2>Welcome to MECH</h2>
+    <p>
+      Greetings and a warm welcome to Make Every Child Happy (MECH) — a youth-led, purpose-driven nonprofit committed to transforming the lives of learners across South Africa.
+    </p>
+    <p>
+      Founded on the belief that every child deserves dignity, support, and opportunity, MECH stands as a beacon of hope for learners from underprivileged communities. Our work is rooted in compassion, community, and a clear vision: to create an environment where children can learn, grow, and dream — without barriers.
+    </p>
+    <p>
+      We work tirelessly to ensure that no child is left behind due to lack of basic necessities. Through our initiatives, including the provision of sanitary pads, toiletries, food parcels, and career guidance expos, we aim to address the real challenges faced by students in rural and township schools.
+    </p>
+    <p>
+      Together with our volunteers, partners, and supporters, we are building a future where learners are empowered, supported, and truly happy.
+    </p>
+  </div>
+
+  <div id="about" class="section">
+    <h2>About MECH</h2>
+    <p>
+      Make Every Child Happy (MECH) is a registered youth-led nonprofit committed to serving the educational and welfare needs of disadvantaged learners in South Africa. Our primary goal is to eliminate barriers to education through targeted programs, donations, and community engagement.
+    </p>
+    <p>
+      From our board of directors:<br><br>
+      "We believe that dignity and education are basic rights of every learner. MECH is not just an organization, it's a movement towards justice, equity, and hope. Our vision is long-term, and we will continue to act with integrity, compassion, and courage in every step of our journey."
+    </p>
+  </div>
+
+  <div id="leadership" class="section">
+    <h2>Leadership</h2>
+    <div class="leadership-card">
+      <h3>Mr. TST Kheswa - Chief Executive Officer (CEO)</h3>
+      <p>Visionary leader and founder of MECH, committed to driving sustainable youth development across communities.</p>
     </div>
-    <div class="leader">
-      <h3>Miss P.S. Ndlovu</h3>
-      <p><strong>Chief Operations Officer (COO)</strong></p>
+    <div class="leadership-card">
+      <h3>Miss SA Bhengu - Chief Operations Officer (COO)</h3>
+      <p>Passionate about grassroots impact and program implementation to reach every child in need.</p>
     </div>
-    <div class="leader">
-      <h3>Mr. S. Biyela</h3>
-      <p><strong>Chief Financial Officer (CFO)</strong></p>
-    </div>
-    <div class="leader">
-      <h3>Miss S.A. Bhengu</h3>
-      <p><strong>Secretary</strong></p>
+    <div class="leadership-card">
+      <h3>Mr. S Biyela - Chief Financial Officer (CFO)</h3>
+      <p>Manages transparency and accountability for all MECH financial activities.</p>
     </div>
   </div>
-</section>
 
-<!-- EVENTS -->
-<section id="events">
-  <h2>Upcoming Events</h2>
-  <div class="event">
-    <strong>ALBINI GIRLS HIGH SCHOOL - Research School Visit</strong><br>
-    <strong>Date:</strong> 12 February 2026<br>
-    <strong>Time:</strong> 09:00 - 13:00
+  <div id="events" class="section">
+    <h2>Events</h2>
+    <div class="event-box">
+      <h3>ALBINI GIRLS HIGH SCHOOL RESEARCH SCHOOL VISIT</h3>
+      <p><strong>Date:</strong> 12 February 2026</p>
+      <p><strong>Time:</strong> 09:00 - 13:00</p>
+    </div>
   </div>
-</section>
 
-<!-- DOCUMENTS -->
-<section id="documents">
-  <h2>Documents</h2>
-  <ul>
-    <li><a href="documents/publications.pdf" target="_blank">Publications</a></li>
-    <li><a href="documents/notices.pdf" target="_blank">Notices</a></li>
-    <li><a href="documents/registration.pdf" target="_blank">Registration Document</a></li>
-    <li><a href="documents/formc-paipa.pdf" target="_blank">Form C - PAIPA Request</a></li>
-    <li><a href="documents/annual-report.pdf" target="_blank">Annual Report</a></li>
-  </ul>
-</section>
+  <div id="documents" class="section">
+    <h2>Documents</h2>
+    <ul class="document-list">
+      <li><a href="#">Publications</a></li>
+      <li><a href="#">Notices</a></li>
+      <li><a href="#">Registration Document</a></li>
+      <li><a href="#">Form C - PAIPA Request</a></li>
+      <li><a href="#">Annual Reports</a></li>
+    </ul>
+  </div>
 
-<!-- DONATE -->
-<section id="donate">
-  <h2>Donate</h2>
-  <p>Your contribution can help us provide dignity packs, food, and hope to learners in need.</p>
-  <button onclick="window.open('https://payments.ozow.com/MAK-MAK-034', '_blank')" style="padding: 12px 25px; font-size: 16px; background: var(--gold); color: black; border: none; border-radius: 6px;">Donate via Ozow</button>
-</section>
+  <div id="donate" class="section">
+    <h2>Donate via Ozow</h2>
+    <div class="ozow-box">
+      <p>Support our cause securely through Ozow</p>
+      <button onclick="window.open('https://secure.ozow.com/...', '_blank')">Donate Now</button>
+    </div>
+  </div>
 
-<!-- CONTACT -->
-<section id="contact">
-  <h2>Contact Us</h2>
-  <p>Email: <a href="mailto:Founder.MECH@outlook.com">Founder.MECH@outlook.com</a></p>
-</section>
+  <div id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:Founder.MECH@outlook.com">Founder.MECH@outlook.com</a></p>
+    <p>Phone: 067 022 6846 / 087 265 4898</p>
+  </div>
 
-<!-- FOOTER -->
-<div class="footer">
-  &copy; 2025 Make Every Child Happy NPC | All Rights Reserved | Reg No. 2025/464075/08
-</div>
+  <footer>
+    <p>&copy; 2025 Make Every Child Happy (MECH) | All Rights Reserved</p>
+    <p>Registered NPC No: 2025/464075/08</p>
+  </footer>
 
-<!-- SCRIPT TO SHOW SECTIONS -->
-<script>
-  function showSection(id) {
-    const sections = document.querySelectorAll("section");
-    sections.forEach(s => s.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-  }
-</script>
+  <!-- Tawk.to Chat Widget -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/65f05b879131ed19d972df98/1hpvscmc5';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
 
-<!-- TAWK.TO LIVE CHAT -->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/your-tawk-to-id/1xyz123';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
+  <!-- Section Switch Script -->
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
