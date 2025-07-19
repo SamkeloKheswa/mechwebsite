@@ -37,6 +37,7 @@
       padding: 14px 20px;
       text-decoration: none;
       font-weight: bold;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     nav a:hover {
@@ -100,12 +101,34 @@
       border: none;
       border-radius: 6px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     button:hover {
       background-color: darkred;
     }
 
+    /* Floating Support Chat Button */
+    #support-chat-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #ff4500;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 99999;
+      transition: background-color 0.3s ease;
+      display: block;
+    }
+
+    #support-chat-btn:hover {
+      background-color: #cc3700;
+    }
   </style>
 </head>
 <body>
@@ -171,10 +194,13 @@
 
   <div id="events" class="section">
     <h2>Events</h2>
-    <div class="event-box">
-      <h3>ALBINI GIRLS HIGH SCHOOL RESEARCH SCHOOL VISIT</h3>
-      <p><strong>Date:</strong> 12 February 2026</p>
-      <p><strong>Time:</strong> 09:00 - 13:00</p>
+    <div class="event-box" style="display: flex; align-items: center; gap: 15px;">
+      <img src="AGHS.jpg" alt="Albini Girls High School Logo" style="width: 60px; height: auto; border-radius: 8px;" />
+      <div>
+        <h3 style="margin: 0;">ALBINI GIRLS HIGH SCHOOL RESEARCH SCHOOL VISIT</h3>
+        <p><strong>Date:</strong> 12 February 2026</p>
+        <p><strong>Time:</strong> 09:00 - 13:00</p>
+      </div>
     </div>
   </div>
 
@@ -227,6 +253,19 @@
       const sections = document.querySelectorAll('.section');
       sections.forEach(sec => sec.classList.remove('active'));
       document.getElementById(sectionId).classList.add('active');
+    }
+  </script>
+
+  <!-- Floating Support Chat Button -->
+  <button id="support-chat-btn" onclick="toggleTawkChat()">Support Chat</button>
+
+  <script>
+    function toggleTawkChat() {
+      if (window.Tawk_API && typeof window.Tawk_API.toggle === "function") {
+        window.Tawk_API.toggle(); // toggles the chat widget open/close
+      } else {
+        alert("Chat is not ready yet. Please try again shortly.");
+      }
     }
   </script>
 
