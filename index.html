@@ -21,7 +21,7 @@
     }
 
     header img {
-      width: 80px;
+      width:100px;
       height: auto;
       display: block;
       margin: 0 auto 10px;
@@ -58,8 +58,10 @@
     }
 
     .team h3 {
-      font-size: 1.5em;
+      font-size: 1.8em;
+      font-weight: bold;
       margin-top: 1em;
+      color: #333;
     }
 
     footer {
@@ -95,30 +97,20 @@
   </nav>
 
   <section id="home" class="active">
-   <section id="about" style="padding: 50px; background-color: #eafaf8;">
-  <h2 style="color: #009688; font-size: 30px;">Welcome to Make Every Child Happy (MECH)</h2>
+    <h2>Welcome to Make Every Child Happy</h2>
+    <p>We are a youth-led nonprofit working to empower learners across South Africa with access to dignity, education, and opportunity. Learn more about who we are and join our mission.</p>
+  </section>
 
-  <p style="font-size: 18px; line-height: 1.8; color: #333;">
-    Greetings and a warm welcome to Make Every Child Happy (MECH) — a youth-led, purpose-driven nonprofit committed to transforming the lives of learners across South Africa.
-  </p>
+  <section id="about" style="background-color: #eafaf8;">
+    <h2 style="color: #009688;">Welcome to Make Every Child Happy (MECH)</h2>
 
-  <p style="font-size: 18px; line-height: 1.8; color: #333;">
-    Founded on the belief that every child deserves dignity, support, and opportunity, MECH stands as a beacon of hope for learners from underprivileged communities. Our work is rooted in compassion, community, and a clear vision: to create an environment where children can learn, grow, and dream — without barriers.
-  </p>
+    <p>Greetings and a warm welcome to Make Every Child Happy (MECH) — a youth-led, purpose-driven nonprofit committed to transforming the lives of learners across South Africa.</p>
 
-  <p style="font-size: 18px; line-height: 1.8; color: #333;">
-    We work tirelessly to ensure that no child is left behind due to lack of basic necessities. Through our initiatives, including the provision of sanitary pads, toiletries, food parcels, and career guidance expos, we aim to address the real challenges faced by students in rural and township schools.
-  </p>
+    <p>Founded on the belief that every child deserves dignity, support, and opportunity, MECH stands as a beacon of hope for learners from underprivileged communities. Our work is rooted in compassion, community, and a clear vision: to create an environment where children can learn, grow, and dream — without barriers.</p>
 
-  <p style="font-size: 18px; line-height: 1.8; color: #333;">
-    Together with our volunteers, partners, and supporters, we are building a future where learners are empowered, supported, and truly happy. Welcome to our journey of impact, empowerment, and change. Let’s work together to Make Every Child Happy.
-  </p>
-</section>
+    <p>We work tirelessly to ensure that no child is left behind due to lack of basic necessities. Through our initiatives, including the provision of sanitary pads, toiletries, food parcels, and career guidance expos, we aim to address the real challenges faced by students in rural and township schools.</p>
 
-
-  <section id="about">
-    <h2>About Us</h2>
-    <p><strong>Make Every Child Happy NPC</strong> is founded by passionate students and community leaders committed to social impact and educational development. We operate in KwaZulu-Natal and serve schools across multiple townships.</p>
+    <p>Together with our volunteers, partners, and supporters, we are building a future where learners are empowered, supported, and truly happy. Welcome to our journey of impact, empowerment, and change. Let’s work together to Make Every Child Happy.</p>
 
     <h3>Message from the Board of Directors</h3>
     <p>At Make Every Child Happy, we believe that every child, regardless of background, deserves access to opportunities and care. From the start, our vision has been to be more than just an organization — but a movement of hope, upliftment, and transformation.</p>
@@ -140,33 +132,30 @@
     <p>Supports budgeting, resource tracking, and treasury reports.</p>
   </section>
 
-  <section id="donate" style="padding: 40px; background-color: #f5f5f5;">
-  <h2 style="color: #00A99D; font-size: 28px;">Donate to Make Every Child Happy</h2>
-  <p>Your contribution helps us provide essential resources like sanitary pads, school supplies, and support for learners in need. Together, we can brighten futures and uplift communities.</p>
-  
-  <form method="POST" action="https://pay.ozow.com">
-    <!-- Replace these values as needed -->
-    <input type="hidden" name="SiteCode" value="MAK-MAK-034" />
-    <input type="hidden" name="CountryCode" value="ZA" />
-    <input type="hidden" name="CurrencyCode" value="ZAR" />
-    <input type="hidden" name="Amount" value="50.00" />
-    <input type="hidden" name="TransactionReference" value="MECH-Donation-001" />
-    <input type="hidden" name="BankReference" value="Donation MECH" />
-    <input type="hidden" name="Customer" value="Donor" />
-    <input type="hidden" name="EmailAddress" value="Founder.MECH@outlook.com" />
-    <input type="hidden" name="CancelUrl" value="https://mech.org.za/cancel" />
-    <input type="hidden" name="ErrorUrl" value="https://mech.org.za/error" />
-    <input type="hidden" name="SuccessUrl" value="https://mech.org.za/success" />
-    <input type="hidden" name="NotifyUrl" value="https://mech.org.za/notify" />
+  <section id="donate" style="background-color: #f5f5f5;">
+    <h2 style="color: #00A99D;">Donate to Make Every Child Happy</h2>
+    <p>Your contribution helps us provide essential resources like sanitary pads, school supplies, and support for learners in need.</p>
+    
+    <form method="POST" action="https://pay.ozow.com">
+      <input type="hidden" name="SiteCode" value="MAK-MAK-034" />
+      <input type="hidden" name="CountryCode" value="ZA" />
+      <input type="hidden" name="CurrencyCode" value="ZAR" />
+      <input type="hidden" name="Amount" value="50.00" />
+      <input type="hidden" name="TransactionReference" value="MECH-Donation-001" />
+      <input type="hidden" name="BankReference" value="Donation MECH" />
+      <input type="hidden" name="Customer" value="Donor" />
+      <input type="hidden" name="EmailAddress" value="Founder.MECH@outlook.com" />
+      <input type="hidden" name="CancelUrl" value="https://mech.org.za/cancel" />
+      <input type="hidden" name="ErrorUrl" value="https://mech.org.za/error" />
+      <input type="hidden" name="SuccessUrl" value="https://mech.org.za/success" />
+      <input type="hidden" name="NotifyUrl" value="https://mech.org.za/notify" />
 
-    <button type="submit" style="margin-top: 15px; padding: 12px 25px; background-color: #00A99D; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
-      Donate via Ozow
-    </button>
-  </form>
-
-  <p style="margin-top: 10px; font-size: 14px;"><i>You will be securely redirected to Ozow to complete your donation.</i></p>
-</section>
-
+      <button type="submit" style="margin-top: 15px; padding: 12px 25px; background-color: #00A99D; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
+        Donate via Ozow
+      </button>
+    </form>
+    <p><i>You will be redirected to Ozow to complete your donation.</i></p>
+  </section>
 
   <section id="documents">
     <h2>Organizational Documents</h2>
@@ -179,29 +168,29 @@
     </ul>
   </section>
 
- <section id="events">
-  <h2>Upcoming Events</h2>
-  <p>🎉 <strong>Launch Day Coming Soon!</strong> We're preparing to officially launch our initiative with stakeholders, community leaders, and learners. Details will be announced on our blog and social media.</p>
-  <hr />
-  <h3>Albini Girls High School Research School Visit</h3>
-  <p><strong>Date:</strong> 12 February 2026</p>
-  <p><strong>Time:</strong> 09:00 - 13:00</p>
-</section>
+  <section id="events">
+    <h2>Upcoming Events</h2>
+    <p>🎉 <strong>Launch Day Coming Soon!</strong> Stay tuned for our official launch with stakeholders, community leaders, and learners.</p>
+    <hr />
+    <h3>Albini Girls High School Research School Visit</h3>
+    <p><strong>Date:</strong> 12 February 2026</p>
+    <p><strong>Time:</strong> 09:00 - 13:00</p>
+  </section>
 
   <section id="blog">
     <h2>News & Blog</h2>
-    <p>Stay updated with our latest activities, school visits, donation drives, and progress stories. Our official blog will go live in the coming weeks.</p>
+    <p>Stay updated with our latest activities, school visits, donation drives, and stories from the ground. Launching soon!</p>
   </section>
 
   <section id="contact">
     <h2>Contact Us</h2>
-    <p>📍 B 1312 Msolwa Road, Mpumalanga Township, Hammarsdale, 3699<br/>
-       📧 Email: <a href="mailto:Marketing.MECH2025@outlook.com">Marketing.MECH2025@outlook.com</a><br/>
+    <p> B 1312 Msolwa Road, Mpumalanga Township, Hammarsdale, 3699<br/>
+       📧 Email: <a href="mailto:Founder.MECH@outlook.com">Marketing Dept.</a><br/>
        📞 Phone: 067 022 6846</p>
   </section>
 
   <footer>
-    &copy; 2025 Make Every Child Happy NPC. All rights reserved.
+    &copy; 2025 Make Every Child Happy NPC. All rights reserved. Reg NO: 2025/464075/08
   </footer>
 
   <script>
