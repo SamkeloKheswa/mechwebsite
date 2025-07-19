@@ -4,77 +4,173 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Make Every Child Happy (MECH)</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="images/logo.png" />
+  <link rel="icon" type="image/png" href="newlogo.png" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background-color: #0099cc;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header img {
+      max-height: 80px;
+    }
+    nav {
+      background-color: #007ba7;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 20px;
+      background-color: white;
+      margin: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #007ba7;
+    }
+    .leadership {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #444;
+    }
+    footer {
+      background-color: #0099cc;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+    .donate-btn {
+      background-color: #ff6600;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    .event-box {
+      background-color: #f1f9ff;
+      padding: 15px;
+      margin-top: 10px;
+      border-left: 5px solid #007ba7;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <img src="images/logo.png" alt="MECH Logo" class="logo" />
-    <h1>Make Every Child Happy</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="leadership.html">Leadership</a>
-      <a href="events.html">Events</a>
-      <a href="documents.html">Documents</a>
-      <a href="contact.html">Contact</a>
-      <a href="donate.html">Donate</a>
-    </nav>
+    <img src="newlogo.png" alt="MECH Logo" />
+    <h1>Make Every Child Happy (MECH)</h1>
+    <p>Youth-Led | Purpose-Driven | Compassionate</p>
   </header>
 
-  <main>
-    <section class="welcome">
-      <h2>MECH Welcome</h2>
-      <p>
-        Greetings and a warm welcome to Make Every Child Happy (MECH) — a youth-led, purpose-driven nonprofit committed to transforming the lives of learners across South Africa.
-      </p>
-      <p>
-        Founded on the belief that every child deserves dignity, support, and opportunity, MECH stands as a beacon of hope for learners from underprivileged communities. Our work is rooted in compassion, community, and a clear vision: to create an environment where children can learn, grow, and dream — without barriers.
-      </p>
-      <p>
-        We work tirelessly to ensure that no child is left behind due to lack of basic necessities. Through our initiatives, including the provision of sanitary pads, toiletries, food parcels, and career guidance expos, we aim to address the real challenges faced by students in rural and township schools. Together with our volunteers, partners, and supporters, we are building a future where learners are empowered, supported, and truly happy.
-      </p>
-    </section>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#leadership">Leadership</a>
+    <a href="#documents">Documents</a>
+    <a href="#events">Events</a>
+    <a href="#contact">Contact</a>
+    <a href="#donate">Donate</a>
+  </nav>
 
-    <section class="board-message">
-      <h2>Message from the Board of Directors</h2>
-      <p>
-        As the Board of Directors of Make Every Child Happy (MECH), we are deeply honored to guide this mission that touches the hearts of communities across South Africa. Our purpose is rooted in love, equality, and a determination to break the chains of poverty through education and dignity.
-      </p>
-      <p>
-        We have seen firsthand how even the smallest acts of generosity — a sanitary pad, a warm meal, a word of encouragement — can transform the life of a young learner. That’s why MECH exists: to fill these crucial gaps and ensure no child is left feeling invisible or forgotten.
-      </p>
-      <p>
-        As we grow and reach more schools and learners, we invite you — as a supporter, volunteer, or donor — to walk with us. Together, we are not just giving hope. We are building futures.
-      </p>
-    </section>
+  <section id="about">
+    <h2>Welcome to MECH</h2>
+    <p>
+      Greetings and a warm welcome to Make Every Child Happy (MECH) — a youth-led, purpose-driven nonprofit committed to transforming the lives of learners across South Africa.
+    </p>
+    <p>
+      Founded on the belief that every child deserves dignity, support, and opportunity, MECH stands as a beacon of hope for learners from underprivileged communities. Our work is rooted in compassion, community, and a clear vision: to create an environment where children can learn, grow, and dream — without barriers.
+    </p>
+    <p>
+      We work tirelessly to ensure that no child is left behind due to lack of basic necessities. Through our initiatives, including the provision of sanitary pads, toiletries, food parcels, and career guidance expos, we aim to address the real challenges faced by students in rural and township schools.
+    </p>
+    <p>
+      Together with our volunteers, partners, and supporters, we are building a future where learners are empowered, supported, and truly happy. Welcome to our journey of impact, empowerment, and change. Let’s work together to Make Every Child Happy.
+    </p>
 
-    <section class="events">
-      <h2>Upcoming Events</h2>
-      <div class="event">
-        <h3>Albini Girls High School Research School Visit</h3>
-        <p><strong>Date:</strong> 12 February 2026</p>
-        <p><strong>Time:</strong> 09:00 - 13:00</p>
-      </div>
-    </section>
+    <h2>Message from the Board of Directors</h2>
+    <p>
+      At MECH, we believe that true transformation begins with small, consistent acts of kindness and advocacy. Our vision is not only to meet immediate needs, but also to inspire lasting change in the communities we serve.
+    </p>
+    <p>
+      The leadership team of MECH is comprised of passionate and committed individuals who understand the struggles of township and rural education firsthand. We are dedicated to creating partnerships, mobilizing resources, and implementing programs that uplift the lives of our learners.
+    </p>
+    <p>
+      As we grow, we remain anchored in our founding values: dignity, equity, opportunity, and integrity. We invite you to be part of this impactful mission.
+    </p>
+  </section>
 
-    <section class="donate">
-      <h2>Support Our Cause</h2>
-      <p>Your donation helps us bring dignity and opportunity to every learner. Every contribution counts.</p>
-      <button onclick="payWithOzow()">Donate via Ozow</button>
-    </section>
-  </main>
+  <section id="leadership">
+    <h2>Leadership</h2>
+    <p class="leadership">Chief Executive Officer (CEO): Mr. TST Kheswa</p>
+    <p class="leadership">Chief Operations Officer (COO): Miss SA Khweswa</p>
+    <p class="leadership">Chief Financial Officer (CFO): Mr. S. Biyela</p>
+  </section>
+
+  <section id="documents">
+    <h2>Documents</h2>
+    <ul>
+      <li><a href="documents/publications.pdf" target="_blank">📄 Publications</a></li>
+      <li><a href="documents/notices.pdf" target="_blank">📄 Notices</a></li>
+      <li><a href="documents/registration.pdf" target="_blank">📄 Registration Document</a></li>
+      <li><a href="documents/form_c_paipa.pdf" target="_blank">📄 Form C - Request of PAIPA</a></li>
+      <li><a href="documents/annual_reports.pdf" target="_blank">📄 Annual Reports</a></li>
+    </ul>
+  </section>
+
+  <section id="events">
+    <h2>Upcoming Events</h2>
+    <div class="event-box">
+      <strong>Albini Girls High School Research Visit</strong><br/>
+      📅 Date: 12 February 2026<br/>
+      🕘 Time: 09:00 – 13:00
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:Founder.MECH@outlook.com">Founder.MECH@outlook.com</a></p>
+    <p>Phone: 067 022 6846 | 087 265 4898</p>
+    <p>Address: B1312 Msolwa Road, Mpumalanga Township, Hammarsdale, 3699</p>
+  </section>
+
+  <section id="donate">
+    <h2>Support Our Work</h2>
+    <p>Your contribution helps us reach more learners with the support they deserve.</p>
+    <form action="https://secure.ozow.com/Pay/MAK-MAK-034" method="POST" target="_blank">
+      <button class="donate-btn" type="submit">Donate via Ozow</button>
+    </form>
+  </section>
 
   <footer>
-    <p>Contact: <a href="mailto:Founder.MECH@outlook.com">Founder.MECH@outlook.com</a></p>
-    <p>&copy; 2025 Make Every Child Happy NPC</p>
+    &copy; 2025 Make Every Child Happy (MECH). All Rights Reserved.
   </footer>
 
-  <!-- OZOW Script -->
-  <script>
-    function payWithOzow() {
-      window.location.href = "https://payments.ozow.com"; // Replace with actual link
-    }
+  <!-- Tawk.to Live Chat -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function(){
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/your_tawk_id_here/1hxxxxx';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
   </script>
 </body>
 </html>
